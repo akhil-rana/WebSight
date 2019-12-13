@@ -1,0 +1,6 @@
+{
+  "/postData": {
+    "target": "https://nodejs-googlesearch-backend.herokuapp.com/",
+    "changeOrigin": true
+  }
+}

@@ -60,7 +60,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "speech-google:build"
+            "browserTarget": "speech-google:build",
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {
