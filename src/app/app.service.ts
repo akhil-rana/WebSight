@@ -11,17 +11,22 @@ export class AppService {
     const speechIn = {
       input: this.speechInput
     };
-    this.http.post("/postData", speechIn).subscribe(
-      response => {
-        this.searchResult = response;
-        console.log(this.searchResult);
-        // var link = this.searchResult.link;
-        // var win = window.open(link, "_blank");
-        // win.focus();
-      },
-      error => {
-        console.log("error during post is ", error);
-      }
-    );
+    this.http
+      .post(
+        "https://nodejs-googlesearch-backend.herokuapp.com/postData",
+        speechIn
+      )
+      .subscribe(
+        response => {
+          this.searchResult = response;
+          console.log(this.searchResult);
+          // var link = this.searchResult.link;
+          // var win = window.open(link, "_blank");
+          // win.focus();
+        },
+        error => {
+          console.log("error during post is ", error);
+        }
+      );
   }
 }
