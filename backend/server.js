@@ -14,7 +14,6 @@ app.get("/gsearch", (req, res) => {
 app.post("/postData", bodyParser.json(), (req, res) => {
   searchKey = req.body.input;
   searchKey = searchKey.replace(/ /g, "+");
-  s;
   console.log(searchKey);
 
   var url = "https://www.google.co.in/search?q=" + searchKey + "&num=10";
