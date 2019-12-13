@@ -7,7 +7,6 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "heroku-postbuild": "ng build --prod && cd ./backend && npm install && npm start && cd - ",
     "e2e": "ng e2e"
   },
   "private": true,
