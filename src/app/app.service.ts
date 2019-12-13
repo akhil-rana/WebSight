@@ -19,6 +19,11 @@ export class AppService {
       .subscribe(
         response => {
           this.searchResult = response;
+          speechSynthesis.speak(
+            new SpeechSynthesisUtterance(
+              this.searchResult.titles.length + " results found "
+            )
+          );
           console.log(this.searchResult);
           // var link = this.searchResult.link;
           // var win = window.open(link, "_blank");
