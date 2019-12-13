@@ -11,7 +11,7 @@ export class AppService {
     const speechIn = {
       input: this.speechInput
     };
-    this.http.post("http://localhost:4000/postData", speechIn).subscribe(
+    this.http.post("/postData", speechIn).subscribe(
       response => {
         this.searchResult = response;
         console.log(this.searchResult);

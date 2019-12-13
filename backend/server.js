@@ -17,8 +17,9 @@ app.post("/postData", bodyParser.json(), (req, res) => {
   var url = "https://www.google.co.in/search?q=" + searchKey + "&num=10";
   google_scrape(url, res);
 });
-app.listen(PORT, () => console.log("App listening on port " + PORT));
-
+var server = app.listen(PORT, () =>
+  console.log("App listening on port " + PORT)
+);
 // var arr4 = [];
 
 function google_scrape(url, res) {
