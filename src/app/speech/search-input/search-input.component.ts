@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AppService } from "../../app.service";
+import { async } from "@angular/core/testing";
 declare var webkitSpeechGrammarList: any;
 declare var webkitSpeechRecognition: any;
 @Component({
@@ -157,7 +158,9 @@ export class SearchInputComponent implements OnInit {
     SearchInputComponent.voiceInput1();
   }
   focusE() {
-    (<HTMLInputElement>document.getElementById("searchKey")).focus();
-    (<HTMLInputElement>document.getElementById("searchKey")).blur();
+    (async () => {
+      (<HTMLInputElement>document.getElementById("searchKey")).focus();
+      (<HTMLInputElement>document.getElementById("searchKey")).blur();
+    })();
   }
 }

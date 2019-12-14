@@ -1,13 +1,18 @@
 import { Component, OnInit } from "@angular/core";
 import { AppService } from "../../app.service";
-
+declare var webkitSpeechGrammarList: any;
+declare var webkitSpeechRecognition: any;
 @Component({
   selector: "app-search-results",
   templateUrl: "./search-results.component.html",
   styleUrls: ["./search-results.component.css"]
 })
 export class SearchResultsComponent implements OnInit {
-  constructor(public as: AppService) {}
+  static as: any;
+
+  constructor(public as: AppService) {
+    SearchResultsComponent.as = this.as;
+  }
 
   resultObject = { titles: [], link: "", urls: [] };
   ngOnInit() {
@@ -42,5 +47,88 @@ export class SearchResultsComponent implements OnInit {
           "Do you want me to dictate them?"
       )
     );
+    setTimeout(function() {
+      SearchResultsComponent.listenUser();
+    }, 4000);
+  }
+  static listenUser() {
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+
+    var grammar = "#JSGF V1.0;";
+    var recognition = new SpeechRecognition();
+    var speechRecognitionList = new SpeechGrammarList();
+    speechRecognitionList.addFromString(grammar, 1);
+    recognition.grammars = speechRecognitionList;
+    recognition.continuous = true;
+    recognition.lang = "en-IN";
+    recognition.interimResults = false;
+
+    recognition.onresult = function(event) {
+      var last = event.results.length - 1;
+      var command = event.results[last][0].transcript;
+      // message.textContent = "Voice Input: " + command + ".";
+      // console.log(command);
+      if (
+        command == "yes" ||
+        command == "yeah sure" ||
+        command == "sure" ||
+        command == "yeah" ||
+        command == "repeat"
+      ) {
+        SearchResultsComponent.dictateResults();
+      } else if (Number(command) >= 0 && Number(command) < 20) {
+        SearchResultsComponent.openResult(Number(command));
+      }
+
+      // gSearch;
+    };
+
+    recognition.onspeechend = function() {
+      recognition.stop();
+    };
+    recognition.onaudiostart = function() {
+      // console.log("sound");
+      var sound = new Audio();
+      sound.src = "assets/sounds/didong.mp3";
+      sound.play();
+    };
+
+    recognition.onerror = function(event) {
+      console.log("Error occurred in recognition: " + event.error);
+    };
+
+    recognition.start();
+  }
+  static dictateResults() {
+    var results = SearchResultsComponent.as.searchResult;
+    var a1 = window.speechSynthesis;
+
+    for (var i = 0; i < results.urls.length; i++) {
+      a1.speak(
+        new SpeechSynthesisUtterance(
+          "Result number " + (i + 1) + ". " + results.titles[i]
+        )
+      );
+    }
+
+    a1.speak(
+      new SpeechSynthesisUtterance(
+        "If you want me to repeat results say repeat? or say result number to open result."
+      )
+    );
+    var st = setInterval(function() {
+      if (a1.pending == false && a1.speaking == false) {
+        // console.log("hello");
+        SearchResultsComponent.listenUser();
+        clearInterval(st);
+      }
+    }, 1000);
+  }
+  static openResult(i) {
+    var results = SearchResultsComponent.as.searchResult;
+
+    var win = window.open(results.urls[i - 1], "_blank");
+    win.focus();
   }
 }
