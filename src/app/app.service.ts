@@ -28,12 +28,8 @@ export class AppService {
       .subscribe(
         response => {
           this.searchResult = response;
-          speechSynthesis.speak(
-            new SpeechSynthesisUtterance(
-              this.searchResult.titles.length + " results found "
-            )
-          );
-          console.log(this.searchResult);
+
+          // console.log(this.searchResult);
           this.resultPass.emit();
           this.resultPass1.emit();
 

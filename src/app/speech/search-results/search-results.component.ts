@@ -35,5 +35,12 @@ export class SearchResultsComponent implements OnInit {
       "none";
     (<HTMLInputElement>document.getElementById("results")).style.display =
       "flex";
+    speechSynthesis.speak(
+      new SpeechSynthesisUtterance(
+        this.resultObject.titles.length +
+          " results found ! " +
+          "Do you want me to dictate them?"
+      )
+    );
   }
 }

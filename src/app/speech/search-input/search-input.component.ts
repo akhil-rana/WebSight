@@ -158,5 +158,6 @@ export class SearchInputComponent implements OnInit {
   }
   focusE() {
     (<HTMLInputElement>document.getElementById("searchKey")).focus();
+    (<HTMLInputElement>document.getElementById("searchKey")).blur();
   }
 }
