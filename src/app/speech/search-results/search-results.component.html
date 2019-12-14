@@ -5,11 +5,22 @@
 <div id="results" style="display: none; align-items: center;">
   <mat-card style=" display: flex; margin: 0 auto;">
     <mat-action-list style="padding-top: 1em; padding-bottom: 1em;" role="list">
-      <div *ngFor="let item of resultObject.titles; let i = index">
-        <div style="color: #1a0dab;">{{ item }}<br /></div>
-
-        <div style="color: #006621;">{{ resultObject.urls[i] }}</div>
+      <div
+        style="padding-top: 1em;"
+        *ngFor="let item of resultObject.titles; let i = index"
+      >
+        <a
+          id="link"
+          href="{{ resultObject.urls[i] }}"
+          style="text-decoration: none;"
+        >
+          <div style="color: #1a0dab; font-size: 1.38em;">{{ item }}<br /></div>
+        </a>
+        <div style="color: #006621; font-size: 1em;">
+          {{ resultObject.urls[i] }}
+        </div>
         <br />
+        <mat-divider *ngIf="i != resultObject.urls.length - 1"></mat-divider>
       </div>
     </mat-action-list>
   </mat-card>

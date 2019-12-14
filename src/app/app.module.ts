@@ -18,6 +18,7 @@ import { SearchInputComponent } from "./speech/search-input/search-input.compone
 import { SearchResultsComponent } from "./speech/search-results/search-results.component";
 import { MatListModule } from "@angular/material/list";
 import { MatCardModule } from "@angular/material/card";
+import { MatDividerModule } from "@angular/material/divider";
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { MatCardModule } from "@angular/material/card";
     HttpClientModule,
     MatProgressSpinnerModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
