@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AppService } from "../../app.service";
+// import wordsToNumbers from "words-to-numbers";
 declare var webkitSpeechGrammarList: any;
 declare var webkitSpeechRecognition: any;
 @Component({
@@ -11,6 +12,8 @@ export class SearchResultsComponent implements OnInit {
   static as: any;
 
   constructor(public as: AppService) {
+    // console.log(wordsToNumbers("nineteen"));
+
     SearchResultsComponent.as = this.as;
   }
 
@@ -44,12 +47,12 @@ export class SearchResultsComponent implements OnInit {
       new SpeechSynthesisUtterance(
         this.resultObject.titles.length +
           " results found ! " +
-          "Do you want me to dictate them?"
+          "Do you want me to dictate them? OR say result number 4 to open 4th result and so."
       )
     );
     setTimeout(function() {
       SearchResultsComponent.listenUser();
-    }, 4000);
+    }, 8000);
   }
   static listenUser() {
     var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
@@ -60,7 +63,7 @@ export class SearchResultsComponent implements OnInit {
     var speechRecognitionList = new SpeechGrammarList();
     speechRecognitionList.addFromString(grammar, 1);
     recognition.grammars = speechRecognitionList;
-    recognition.continuous = true;
+    // recognition.continuous = true;
     recognition.lang = "en-IN";
     recognition.interimResults = false;
 
@@ -77,8 +80,15 @@ export class SearchResultsComponent implements OnInit {
         command == "repeat"
       ) {
         SearchResultsComponent.dictateResults();
-      } else if (Number(command) >= 0 && Number(command) < 20) {
-        SearchResultsComponent.openResult(Number(command));
+      } else if (command.includes("result number")) {
+        command = command.substring(14);
+        console.log(command);
+        if (
+          command > 0 &&
+          command < SearchResultsComponent.as.searchResult.urls.length
+        ) {
+          SearchResultsComponent.openResult(command);
+        }
       }
 
       // gSearch;
@@ -114,7 +124,7 @@ export class SearchResultsComponent implements OnInit {
 
     a1.speak(
       new SpeechSynthesisUtterance(
-        "If you want me to repeat results say repeat? or say result number to open result."
+        "If you want me to repeat results say repeat? or say result number 4 to open 4th result and so."
       )
     );
     var st = setInterval(function() {

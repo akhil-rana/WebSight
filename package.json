@@ -34,6 +34,7 @@
     "rxjs": "~6.5.3",
     "tslib": "^1.10.0",
     "typescript": "^3.6.4",
+    "words-to-numbers": "^1.5.1",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
