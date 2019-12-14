@@ -1,0 +1,14 @@
+<div id="loading" style="display: none; align-items: center;">
+  <br /><br /><br />
+  <mat-spinner style="margin:  0 auto;"></mat-spinner>
+</div>
+<div id="results" style="display: none; align-items: center;">
+  <mat-card style=" display: flex; margin: 0 auto;">
+    <mat-action-list style="padding-top: 1em; padding-bottom: 1em;" role="list">
+      <mat-list-item *ngFor="let item of resultObject.titles; let i = index"
+        >{{ item }} <br />
+        {{ resultObject.urls[i] }} <br />
+      </mat-list-item>
+    </mat-action-list>
+  </mat-card>
+</div>

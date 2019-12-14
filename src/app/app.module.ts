@@ -13,10 +13,19 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { SpeechComponent } from "./speech/speech.component";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
-// import * as cheerio from "cheerio";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { SearchInputComponent } from "./speech/search-input/search-input.component";
+import { SearchResultsComponent } from "./speech/search-results/search-results.component";
+import { MatListModule } from "@angular/material/list";
+import { MatCardModule } from "@angular/material/card";
 
 @NgModule({
-  declarations: [AppComponent, SpeechComponent],
+  declarations: [
+    AppComponent,
+    SpeechComponent,
+    SearchInputComponent,
+    SearchResultsComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -27,7 +36,10 @@ import { HttpClientModule } from "@angular/common/http";
     MatIconModule,
     MatToolbarModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule,
+    MatListModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

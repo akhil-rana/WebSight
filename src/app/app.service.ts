@@ -1,5 +1,6 @@
-import { Injectable } from "@angular/core";
+import { Injectable, EventEmitter } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { Subscription } from "rxjs/internal/Subscription";
 @Injectable({
   providedIn: "root"
 })
@@ -7,7 +8,15 @@ export class AppService {
   constructor(private http: HttpClient) {}
   speechInput;
   searchResult;
+  resultPass = new EventEmitter();
+  resultRec: Subscription;
+  resultPass1 = new EventEmitter();
+  resultRec1: Subscription;
+  loadingPass = new EventEmitter();
+  loadingRec: Subscription;
   gSearch() {
+    this.loadingPass.emit();
+
     const speechIn = {
       input: this.speechInput
     };
@@ -25,9 +34,10 @@ export class AppService {
             )
           );
           console.log(this.searchResult);
-          // var link = this.searchResult.link;
-          // var win = window.open(link, "_blank");
-          // win.focus();
+          this.resultPass.emit();
+          this.resultPass1.emit();
+
+          return;
         },
         error => {
           console.log("error during post is ", error);
