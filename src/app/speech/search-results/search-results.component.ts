@@ -115,9 +115,10 @@ export class SearchResultsComponent implements OnInit {
     var a1 = window.speechSynthesis;
 
     for (var i = 0; i < results.urls.length; i++) {
+      var siteName=results.urls[i].match(/:\/\/(.[^/]+)/)[1];
       a1.speak(
         new SpeechSynthesisUtterance(
-          "Result number " + (i + 1) + ". " + results.titles[i]
+          "Result number " + (i + 1) + ". " + results.titles[i]+"from"+siteName
         )
       );
     }
