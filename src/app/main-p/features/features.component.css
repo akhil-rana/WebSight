@@ -1,0 +1,90 @@
+/* .example-card {
+    max-width: 400px;
+  } */
+.gmail {
+  height: 10em;
+  width: 15em;
+  margin-left: 2em;
+  border-radius: 2em;
+}
+
+.gsearch {
+  height: 10em;
+  width: 15em;
+  margin-left: 2em;
+  border-radius: 2em;
+}
+.gmailtitle {
+  margin-left: 2em;
+}
+
+.example-header-imagem {
+  background-image: url("https://i.postimg.cc/XYkks8W0/IMG-20191222-124339-653.jpg");
+  background-size: 2.7em;
+  /* background-repeat: no-repeat; */
+  background-position: left;
+}
+.example-header-images {
+  background-image: url("https://i.postimg.cc/cLqGNgMs/googlesearch2.jpg");
+  /* background-size: cover; */
+  background-position: left;
+  background-size: 3.2em;
+  background-repeat: no-repeat;
+}
+.example-header-imageb {
+  background-image: url("https://i.postimg.cc/xCmF5ghM/bbc-news.jpg");
+  /* background-size: cover; */
+  background-position: left;
+  background-size: 2.5em;
+  background-repeat: no-repeat;
+}
+.example-header-imagew {
+  background-image: url("https://i.postimg.cc/KjWW5zDp/wikipedia.png");
+  /* background-size: cover; */
+  background-position: left;
+  background-size: 2em;
+  background-repeat: no-repeat;
+}
+.example-header-imaget {
+  background-image: url("https://i.postimg.cc/YCKn2TnF/googletranslate.jpg");
+  /* background-size: cover; */
+  background-position: left;
+  background-size: 3em;
+  background-repeat: no-repeat;
+}
+.example-header-imagea {
+  background-image: url("https://i.postimg.cc/3N2L2BWN/amazon.jpg");
+  /* background-size: cover; */
+  background-position: left;
+  background-size: 2.5em;
+  background-repeat: no-repeat;
+}
+mat-card {
+  width: 20em;
+  height: 20em;
+  margin-top: 2em;
+  margin-left: 5em;
+  float: left;
+  transition: 0.5s;
+}
+mat-card:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.wikipedia {
+  height: 10em;
+  width: 10em;
+  margin-left: 2em;
+  border-radius: 2em;
+}
+.gtranslate {
+  height: 10em;
+  width: 10em;
+  margin-left: 4em;
+  border-radius: 2em;
+}
+hr {
+  margin-top: 0.01em;
+  color: cadetblue;
+}

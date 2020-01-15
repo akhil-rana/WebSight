@@ -18,7 +18,11 @@
           href="{{ resultObject.urls[i] }}"
           style="text-decoration: none;"
         >
-          <div style="color: #1a0dab; font-size: 1.38em;">{{ item }}<br /></div>
+          <div style="color: #1a0dab; font-size: 1.38em;">
+            <span style="font-size: larger; color: black; "> {{ i + 1 }} </span
+            ><br />
+            {{ item }}<br />
+          </div>
         </a>
         <div style="color: #006621; font-size: 1em;">
           {{ resultObject.urls[i] }}

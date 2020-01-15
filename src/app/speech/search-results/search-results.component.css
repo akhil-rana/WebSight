@@ -1,3 +1,7 @@
 #link :hover {
   text-decoration: underline;
 }
+
+#link {
+  text-overflow: ellipsis;
+}

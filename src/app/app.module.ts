@@ -19,13 +19,19 @@ import { SearchResultsComponent } from "./speech/search-results/search-results.c
 import { MatListModule } from "@angular/material/list";
 import { MatCardModule } from "@angular/material/card";
 import { MatDividerModule } from "@angular/material/divider";
+import { MainPComponent } from "./main-p/main-p.component";
+import { FeaturesComponent } from './main-p/features/features.component';
+import { SigninupComponent } from './main-p/signinup/signinup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SpeechComponent,
     SearchInputComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    MainPComponent,
+    FeaturesComponent,
+    SigninupComponent
   ],
   imports: [
     BrowserModule,
