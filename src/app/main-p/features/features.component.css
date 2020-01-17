@@ -3,57 +3,82 @@
   } */
 .gmail {
   height: 10em;
-  width: 15em;
-  margin-left: 2em;
+  width: auto;
+  margin-left: 5em;
   border-radius: 2em;
 }
 
 .gsearch {
   height: 10em;
-  width: 15em;
-  margin-left: 2em;
+  width: auto;
+  margin-left: 5em;
+  border-radius: 2em;
+}
+.news {
+  height: 10em;
+  width: auto;
+  margin-left: 5em;
   border-radius: 2em;
 }
 .gmailtitle {
   margin-left: 2em;
 }
+.wikipedia {
+  height: 10em;
+  width: auto;
+  margin-left: 4em;
+  border-radius: 2em;
+}
+.gtranslate {
+  height: 10em;
+  width: auto;
+  margin-left: 5em;
+  border-radius: 2em;
+}
+.amazon {
+  height: 10em;
+  width: auto;
+  transform: scale(1.1);
+  margin-left: 5em;
+  border-radius: 2em;
+}
 
 .example-header-imagem {
-  background-image: url("https://i.postimg.cc/XYkks8W0/IMG-20191222-124339-653.jpg");
-  background-size: 2.7em;
+  background-image: url("https://i.postimg.cc/W4z1NpL1/one.png");
+  background-size: 2.5em;
   /* background-repeat: no-repeat; */
   background-position: left;
 }
 .example-header-images {
-  background-image: url("https://i.postimg.cc/cLqGNgMs/googlesearch2.jpg");
+  background-image: url("https://i.postimg.cc/mrn2txBN/two.png");
   /* background-size: cover; */
   background-position: left;
-  background-size: 3.2em;
+  background-size: 2.5em;
   background-repeat: no-repeat;
 }
 .example-header-imageb {
-  background-image: url("https://i.postimg.cc/xCmF5ghM/bbc-news.jpg");
+  background-image: url("https://i.postimg.cc/pTnVj0dN/three.png");
   /* background-size: cover; */
   background-position: left;
   background-size: 2.5em;
   background-repeat: no-repeat;
 }
 .example-header-imagew {
-  background-image: url("https://i.postimg.cc/KjWW5zDp/wikipedia.png");
+  background-image: url("https://i.postimg.cc/prbWJD9m/four.png");
   /* background-size: cover; */
   background-position: left;
-  background-size: 2em;
+  background-size: 2.5em;
   background-repeat: no-repeat;
 }
 .example-header-imaget {
-  background-image: url("https://i.postimg.cc/YCKn2TnF/googletranslate.jpg");
+  background-image: url("https://i.postimg.cc/Rh7MsNfX/five.png");
   /* background-size: cover; */
   background-position: left;
-  background-size: 3em;
+  background-size: 2.5em;
   background-repeat: no-repeat;
 }
 .example-header-imagea {
-  background-image: url("https://i.postimg.cc/3N2L2BWN/amazon.jpg");
+  background-image: url("https://i.postimg.cc/44VNNFMV/six.png");
   /* background-size: cover; */
   background-position: left;
   background-size: 2.5em;
@@ -68,23 +93,14 @@ mat-card {
   transition: 0.5s;
 }
 mat-card:hover {
-  transform: scale(1.1);
+  transform: scale(1.07);
   cursor: pointer;
 }
 
-.wikipedia {
-  height: 10em;
-  width: 10em;
-  margin-left: 2em;
-  border-radius: 2em;
-}
-.gtranslate {
-  height: 10em;
-  width: 10em;
-  margin-left: 4em;
-  border-radius: 2em;
-}
 hr {
   margin-top: 0.01em;
   color: cadetblue;
+}
+.amazon1 {
+  margin-bottom: 2em;
 }

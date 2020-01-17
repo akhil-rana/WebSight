@@ -18,19 +18,11 @@ mat-toolbar {
 }
 .signin {
   background-color: cyan;
-  margin-left: 750px;
+  position: absolute;
+  right: 3em;
   font-family: monospace;
+  transition: 0.5s;
 }
 .signin:hover {
   transform: scale(1.1);
-  transition: 0.5s;
-}
-.signup {
-  background-color: cyan;
-  margin-left: 40px;
-  font-family: monospace;
-}
-.signup:hover {
-  transform: scale(1.1);
-  transition: 0.5s;
 }
