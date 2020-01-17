@@ -1,6 +1,7 @@
 /* .example-card {
     max-width: 400px;
   } */
+
 .gmail {
   height: 10em;
   width: auto;
@@ -87,13 +88,16 @@
 mat-card {
   width: 20em;
   height: 20em;
+  /* display: table-cell;
+  vertical-align: middle; */
+  margin: 0px auto;
   margin-top: 2em;
-  margin-left: 5em;
+  /* margin-left: 5em; */
   float: left;
-  transition: 0.5s;
+  transition: 0.4s;
 }
 mat-card:hover {
-  transform: scale(1.07);
+  transform: scale(1.076);
   cursor: pointer;
 }
 
@@ -103,4 +107,10 @@ hr {
 }
 .amazon1 {
   margin-bottom: 2em;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
 }
