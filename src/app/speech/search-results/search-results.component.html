@@ -6,7 +6,10 @@
   <mat-card
     style=" display: flex; margin: 1em auto; background: rgba(255, 255, 255, 0.781); width: 75%;"
   >
-    <mat-action-list style="padding-top: 1em; padding-bottom: 1em;" role="list">
+    <mat-action-list
+      style="padding-top: 1em; padding-bottom: 1em; overflow: hidden;"
+      role="list"
+    >
       <div
         style="padding-top: 1em;"
         *ngFor="let item of resultObject.titles; let i = index"
