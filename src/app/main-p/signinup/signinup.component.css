@@ -20,9 +20,15 @@ mat-toolbar {
   background-color: cyan;
   position: absolute;
   right: 3em;
-  font-family: monospace;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   transition: 0.5s;
 }
 .signin:hover {
   transform: scale(1.1);
+}
+.matCon {
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
 }

@@ -8,6 +8,9 @@
   margin-left: 5em;
   border-radius: 2em;
 }
+.cards {
+  background: #042236;
+}
 
 .gsearch {
   height: 10em;
@@ -22,12 +25,12 @@
   border-radius: 2em;
 }
 .gmailtitle {
-  margin-left: 2em;
+  /* margin-left: 0.8em; */
 }
 .wikipedia {
   height: 10em;
   width: auto;
-  margin-left: 4em;
+  margin-left: 5em;
   border-radius: 2em;
 }
 .gtranslate {
@@ -45,35 +48,40 @@
 }
 
 .example-header-imagem {
-  background-image: url("https://i.postimg.cc/W4z1NpL1/one.png");
+  background-image: url("https://i.postimg.cc/pTnVj0dN/three.png");
+
   background-size: 2.5em;
   /* background-repeat: no-repeat; */
   background-position: left;
 }
 .example-header-images {
-  background-image: url("https://i.postimg.cc/mrn2txBN/two.png");
+  background-image: url("https://i.postimg.cc/W4z1NpL1/one.png");
+
   /* background-size: cover; */
   background-position: left;
   background-size: 2.5em;
   background-repeat: no-repeat;
 }
 .example-header-imageb {
-  background-image: url("https://i.postimg.cc/pTnVj0dN/three.png");
+  background-image: url("https://i.postimg.cc/mrn2txBN/two.png");
+
   /* background-size: cover; */
   background-position: left;
   background-size: 2.5em;
   background-repeat: no-repeat;
 }
 .example-header-imagew {
-  background-image: url("https://i.postimg.cc/prbWJD9m/four.png");
+  background-image: url("https://i.postimg.cc/Rh7MsNfX/five.png");
+
   /* background-size: cover; */
   background-position: left;
   background-size: 2.5em;
   background-repeat: no-repeat;
 }
 .example-header-imaget {
-  background-image: url("https://i.postimg.cc/Rh7MsNfX/five.png");
   /* background-size: cover; */
+  background-image: url("https://i.postimg.cc/prbWJD9m/four.png");
+
   background-position: left;
   background-size: 2.5em;
   background-repeat: no-repeat;
@@ -84,6 +92,9 @@
   background-position: left;
   background-size: 2.5em;
   background-repeat: no-repeat;
+}
+mat-card-content {
+  font-size: 1.2em;
 }
 mat-card {
   width: 20em;
@@ -102,7 +113,7 @@ mat-card:hover {
 }
 
 hr {
-  margin-top: 0.01em;
+  margin: 0;
   color: cadetblue;
 }
 .amazon1 {
