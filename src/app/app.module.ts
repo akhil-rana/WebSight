@@ -20,9 +20,10 @@ import { MatListModule } from "@angular/material/list";
 import { MatCardModule } from "@angular/material/card";
 import { MatDividerModule } from "@angular/material/divider";
 import { MainPComponent } from "./main-p/main-p.component";
-import { FeaturesComponent } from './main-p/features/features.component';
-import { SigninupComponent } from './main-p/signinup/signinup.component';
-import { TranslateComponent } from './translate/translate.component';
+import { FeaturesComponent } from "./main-p/features/features.component";
+import { SigninupComponent } from "./main-p/signinup/signinup.component";
+import { TranslateComponent } from "./translate/translate.component";
+import { MatSelectModule } from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { TranslateComponent } from './translate/translate.component';
     MatProgressSpinnerModule,
     MatListModule,
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

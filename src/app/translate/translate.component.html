@@ -1,13 +1,51 @@
-<mat-form-field>
-  <input
-    [(ngModel)]="query"
-    matInput
-    placeholder="Any language here"
-    name="sample"
-  />
-</mat-form-field>
-<br />
+<br /><br /><br />
+<div style="text-align: center;">
+  <mat-form-field style="width: 20em !important;  font-size: larger;">
+    <textarea
+      [(ngModel)]="query"
+      matInput
+      placeholder="Any language here"
+      name="sample"
+    >
+    </textarea>
+  </mat-form-field>
+  <br />
 
-<button (click)="sendQuery()" mat-fab color="primary">Convert</button>
+  <mat-form-field>
+    <mat-label>Language</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let item of LangNames" [value]="item">
+        {{ item }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
-<p id="output"></p>
+  <br />
+  <br /><br />
+
+  <button (click)="sendQuery()" mat-fab color="primary">
+    <mat-icon>g_translate</mat-icon>
+  </button>
+  <br />
+  <br /><br />
+  <mat-form-field>
+    <mat-label>Language</mat-label>
+    <mat-select [(value)]="selectedOutputLang">
+      <mat-option *ngFor="let item of LangNames" [value]="item">
+        {{ item }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br /><br />
+  <mat-form-field style="width: 20em !important; font-size: larger;">
+    <textarea
+      matInput
+      id="output"
+      disabled
+      style="color: black;"
+      placeholder="  {{ selectedOutputLang }} language here"
+      name="sample"
+    >
+    </textarea>
+  </mat-form-field>
+</div>

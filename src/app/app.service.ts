@@ -20,6 +20,8 @@ export class AppService {
   resultRec3: Subscription;
   query;
   output;
+  LangCode;
+  LangNames;
   gSearch() {
     this.loadingPass.emit();
 
@@ -44,13 +46,14 @@ export class AppService {
       );
   }
 
-  sendQuery() {
-    // console.log(this.query);
+  sendQuery(outLang) {
+    console.log(outLang);
     const tquery = {
-      input: this.query
+      input: this.query,
+      outCode: outLang
     };
     this.http
-      .post("https://websight-backend.herokuapp.com/translate", tquery)
+      .post("http://websight-backend.herokuapp.com/translate", tquery)
       .subscribe(
         response => {
           console.log(response);
