@@ -32,9 +32,14 @@ export class TranslateComponent implements OnInit {
   }
   setResult() {
     var result = this.as.output.out;
-    console.log(result);
+    // console.log(result);
     (<HTMLInputElement>document.getElementById("output")).value = result;
-    speechSynthesis.speak(new SpeechSynthesisUtterance(result));
+    var utterThis = new SpeechSynthesisUtterance(result);
+    utterThis.lang = this.LangCode[
+      this.LangNames.indexOf(this.selectedOutputLang)
+    ];
+    // console.log(speechSynthesis.getVoices());
+    speechSynthesis.speak(utterThis);
   }
 
   langs = {

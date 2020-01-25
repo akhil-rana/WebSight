@@ -47,7 +47,7 @@ export class AppService {
   }
 
   sendQuery(outLang) {
-    console.log(outLang);
+    // console.log(outLang);
     const tquery = {
       input: this.query,
       outCode: outLang
@@ -56,7 +56,7 @@ export class AppService {
       .post("http://websight-backend.herokuapp.com/translate", tquery)
       .subscribe(
         response => {
-          console.log(response);
+          // console.log(response);
           this.output = response;
           this.resultPass3.emit();
         },
