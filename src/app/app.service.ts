@@ -27,10 +27,7 @@ export class AppService {
       input: this.speechInput
     };
     this.http
-      .post(
-        "https://nodejs-googlesearch-backend.herokuapp.com/google-search",
-        speechIn
-      )
+      .post("https://websight-backend.herokuapp.com/google-search", speechIn)
       .subscribe(
         response => {
           this.searchResult = response;
@@ -52,15 +49,17 @@ export class AppService {
     const tquery = {
       input: this.query
     };
-    this.http.post("http://127.0.0.1:8080/translate", tquery).subscribe(
-      response => {
-        console.log(response);
-        this.output = response;
-        this.resultPass3.emit();
-      },
-      error => {
-        console.log("error", error);
-      }
-    );
+    this.http
+      .post("https://websight-backend.herokuapp.com/translate", tquery)
+      .subscribe(
+        response => {
+          console.log(response);
+          this.output = response;
+          this.resultPass3.emit();
+        },
+        error => {
+          console.log("error", error);
+        }
+      );
   }
 }
