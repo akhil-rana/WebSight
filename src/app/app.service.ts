@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Subscription } from "rxjs/internal/Subscription";
+
 @Injectable({
   providedIn: "root"
 })
@@ -14,6 +15,11 @@ export class AppService {
   resultRec1: Subscription;
   loadingPass = new EventEmitter();
   loadingRec: Subscription;
+
+  resultPass3 = new EventEmitter();
+  resultRec3: Subscription;
+  query;
+  output;
   gSearch() {
     this.loadingPass.emit();
 
@@ -22,7 +28,7 @@ export class AppService {
     };
     this.http
       .post(
-        "https://nodejs-googlesearch-backend.herokuapp.com/postData",
+        "https://nodejs-googlesearch-backend.herokuapp.com/google-search",
         speechIn
       )
       .subscribe(
@@ -39,5 +45,22 @@ export class AppService {
           console.log("error during post is ", error);
         }
       );
+  }
+
+  sendQuery() {
+    // console.log(this.query);
+    const tquery = {
+      input: this.query
+    };
+    this.http.post("http://127.0.0.1:8080/translate", tquery).subscribe(
+      response => {
+        console.log(response);
+        this.output = response;
+        this.resultPass3.emit();
+      },
+      error => {
+        console.log("error", error);
+      }
+    );
   }
 }

@@ -1,0 +1,13 @@
+<mat-form-field>
+  <input
+    [(ngModel)]="query"
+    matInput
+    placeholder="Any language here"
+    name="sample"
+  />
+</mat-form-field>
+<br />
+
+<button (click)="sendQuery()" mat-fab color="primary">Convert</button>
+
+<p id="output"></p>

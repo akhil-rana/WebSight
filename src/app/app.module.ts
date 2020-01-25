@@ -22,6 +22,7 @@ import { MatDividerModule } from "@angular/material/divider";
 import { MainPComponent } from "./main-p/main-p.component";
 import { FeaturesComponent } from './main-p/features/features.component';
 import { SigninupComponent } from './main-p/signinup/signinup.component';
+import { TranslateComponent } from './translate/translate.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SigninupComponent } from './main-p/signinup/signinup.component';
     SearchResultsComponent,
     MainPComponent,
     FeaturesComponent,
-    SigninupComponent
+    SigninupComponent,
+    TranslateComponent
   ],
   imports: [
     BrowserModule,
