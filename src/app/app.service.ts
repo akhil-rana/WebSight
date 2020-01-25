@@ -53,7 +53,7 @@ export class AppService {
       outCode: outLang
     };
     this.http
-      .post("http://websight-backend.herokuapp.com/translate", tquery)
+      .post("https://websight-backend.herokuapp.com/translate", tquery)
       .subscribe(
         response => {
           // console.log(response);
