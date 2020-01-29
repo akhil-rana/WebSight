@@ -1,7 +1,11 @@
 <br /><br /><br />
 <div style="text-align: center;">
-  <mat-form-field style="width: 20em !important;  font-size: larger;">
+  <mat-form-field style="width: 20em !important;   font-size: large;">
     <textarea
+      cdkTextareaAutosize
+      cdkAutosizeMinRows="3"
+      cdkAutosizeMaxRows="10"
+      id="text1"
       [(ngModel)]="query"
       matInput
       placeholder="Any language here"
@@ -9,16 +13,29 @@
     >
     </textarea>
   </mat-form-field>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+  <button (click)="voiceInputSpeech()" mat-fab color="primary">
+    <mat-icon>mic</mat-icon>
+  </button>
+  <br /><br />
   <br />
 
   <mat-form-field>
     <mat-label>Language</mat-label>
-    <mat-select>
+    <mat-select [(value)]="selectedInputLang[0]">
       <mat-option *ngFor="let item of LangNames" [value]="item">
         {{ item }}
       </mat-option>
     </mat-select>
   </mat-form-field>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+  <button (click)="voiceInputLang()" mat-mini-fab color="primary">
+    <mat-icon>mic</mat-icon>
+  </button>
+
+  <!-- <p id="langInput">Input Language: {{ selectedInputLang }}</p> -->
 
   <br />
   <br /><br />
@@ -30,22 +47,33 @@
   <br /><br />
   <mat-form-field>
     <mat-label>Language</mat-label>
-    <mat-select [(value)]="selectedOutputLang">
-      <mat-option *ngFor="let item of LangNames" [value]="item">
+    <mat-select [(value)]="selectedOutputLang[0]">
+      <mat-option
+        *ngFor="
+          let item of LangNames | slice: 1:LangNames.length;
+          let i = index
+        "
+        [value]="item"
+      >
         {{ item }}
       </mat-option>
     </mat-select>
   </mat-form-field>
   <br /><br />
-  <mat-form-field style="width: 20em !important; font-size: larger;">
+  <mat-form-field style="width: 20em !important; font-size: large;">
     <textarea
       matInput
+      cdkTextareaAutosize
+      cdkAutosizeMinRows="3"
+      cdkAutosizeMaxRows="10"
       id="output"
       disabled
       style="color: black;"
-      placeholder="  {{ selectedOutputLang }} language here"
+      placeholder="  {{ selectedOutputLang[0] }} language here"
       name="sample"
     >
     </textarea>
   </mat-form-field>
+
+  <!-- <button (click)="changeSel()"></button> -->
 </div>

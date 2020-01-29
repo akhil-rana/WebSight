@@ -1,5 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ɵɵcontainerRefreshEnd } from "@angular/core";
 import { AppService } from "../app.service";
+declare var webkitSpeechGrammarList: any;
+declare var webkitSpeechRecognition: any;
 
 @Component({
   selector: "app-translate",
@@ -10,6 +12,8 @@ export class TranslateComponent implements OnInit {
   constructor(private as: AppService) {}
 
   ngOnInit() {
+    // this.selectedInputLang = this.voiceCommand;
+    // console.log(this.LangNames);
     this.as.LangCode = this.LangCode;
     this.as.LangNames = this.LangNames;
 
@@ -21,13 +25,17 @@ export class TranslateComponent implements OnInit {
   }
   lang = "English";
   query;
-  selectedOutputLang = "English";
+  selectedOutputLang = ["English"];
+
+  selectedInputLang = ["Automatic"];
+
+  // voiceCommand = "Automatic";
   Object = Object;
   sendQuery() {
-    this.as.query = this.query;
+    this.as.query = (<HTMLInputElement>document.getElementById("text1")).value;
 
     this.as.sendQuery(
-      this.LangCode[this.LangNames.indexOf(this.selectedOutputLang)]
+      this.LangCode[this.LangNames.indexOf(this.selectedOutputLang[0])]
     );
   }
   setResult() {
@@ -36,13 +44,14 @@ export class TranslateComponent implements OnInit {
     (<HTMLInputElement>document.getElementById("output")).value = result;
     var utterThis = new SpeechSynthesisUtterance(result);
     utterThis.lang = this.LangCode[
-      this.LangNames.indexOf(this.selectedOutputLang)
+      this.LangNames.indexOf(this.selectedOutputLang[0])
     ];
     // console.log(speechSynthesis.getVoices());
     speechSynthesis.speak(utterThis);
   }
 
   langs = {
+    auto: "Automatic",
     af: "Afrikaans",
     sq: "Albanian",
     am: "Amharic",
@@ -57,8 +66,8 @@ export class TranslateComponent implements OnInit {
     ca: "Catalan",
     ceb: "Cebuano",
     ny: "Chichewa",
-    "zh-CN": "Chinese (Simplified)",
-    "zh-TW": "Chinese (Traditional)",
+    "zh-CN": "Chinese simplified",
+    "zh-TW": "Chinese traditional",
     co: "Corsican",
     hr: "Croatian",
     cs: "Czech",
@@ -95,7 +104,7 @@ export class TranslateComponent implements OnInit {
     kk: "Kazakh",
     km: "Khmer",
     ko: "Korean",
-    ku: "Kurdish (Kurmanji)",
+    ku: "Kurdish ",
     ky: "Kyrgyz",
     lo: "Lao",
     la: "Latin",
@@ -110,7 +119,7 @@ export class TranslateComponent implements OnInit {
     mi: "Maori",
     mr: "Marathi",
     mn: "Mongolian",
-    my: "Myanmar (Burmese)",
+    my: "Burmese",
     ne: "Nepali",
     no: "Norwegian",
     ps: "Pashto",
@@ -150,6 +159,121 @@ export class TranslateComponent implements OnInit {
     zu: "Zulu"
   };
 
-  LangCode = Object.keys(this.langs);
   LangNames = Object.values(this.langs);
+  LangCode = Object.keys(this.langs);
+
+  voiceInputLang() {
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+    var LangNames = this.LangNames;
+    var LangCode = this.LangCode;
+
+    var grammar = "#JSGF V1.0;";
+    var recognition = new SpeechRecognition();
+
+    var selectedInputLang = this.selectedInputLang;
+    var selectedOutputLang = this.selectedOutputLang;
+    var speechRecognitionList = new SpeechGrammarList();
+    speechRecognitionList.addFromString(grammar, 1);
+    recognition.grammars = speechRecognitionList;
+    recognition.continuous = false;
+    recognition.lang = "en-IN";
+    recognition.interimResults = false;
+
+    recognition.onresult = function(event) {
+      var last = event.results.length - 1;
+      var command = event.results[last][0].transcript;
+      // message.textContent = "Voice Input: " + command + ".";
+
+      if (LangNames.includes(command)) {
+        selectedInputLang[0] = command;
+        (<HTMLInputElement>document.getElementById("text1")).focus();
+      } else {
+        selectedInputLang[0] = "Automatic";
+        (<HTMLInputElement>document.getElementById("text1")).focus();
+      }
+      console.log(command);
+
+      // (<HTMLInputElement>document.getElementById("langInput")).innerHTML =
+      //   "Input Language: " + this.selectedInputLang;
+
+      // this.ngOnInit();
+      // refreshCom();
+      // gSearch;
+    };
+
+    recognition.onspeechend = function() {
+      recognition.stop();
+    };
+    recognition.onaudiostart = function() {
+      // console.log("sound");
+      var sound = new Audio();
+      sound.src = "assets/sounds/didong.mp3";
+      sound.play();
+    };
+
+    recognition.onerror = function(event) {
+      console.log("Error occurred in recognition: " + event.error);
+    };
+
+    recognition.start();
+  }
+
+  voiceInputSpeech() {
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+    var as = this.as;
+    var query = this.query;
+    var LangNames = this.LangNames;
+    var LangCode = this.LangCode;
+
+    var grammar = "#JSGF V1.0;";
+    var recognition = new SpeechRecognition();
+    var selectedInputLang = this.selectedInputLang;
+    var selectedOutputLang = this.selectedOutputLang;
+    var speechRecognitionList = new SpeechGrammarList();
+
+    speechRecognitionList.addFromString(grammar, 1);
+    recognition.grammars = speechRecognitionList;
+    recognition.continuous = false;
+    recognition.lang = this.LangCode[
+      this.LangNames.indexOf(this.selectedInputLang[0])
+    ];
+    recognition.interimResults = false;
+
+    recognition.onresult = function(event) {
+      var last = event.results.length - 1;
+      var command = event.results[last][0].transcript;
+      // message.textContent = "Voice Input: " + command + ".";
+
+      console.log(command);
+      (<HTMLInputElement>document.getElementById("text1")).focus();
+
+      (<HTMLInputElement>document.getElementById("text1")).value = command;
+      as.query = (<HTMLInputElement>document.getElementById("text1")).value;
+
+      as.sendQuery(LangCode[LangNames.indexOf(selectedOutputLang[0])]);
+      //   "Input Language: " + this.selectedInputLang;
+
+      // this.ngOnInit();
+      // refreshCom();
+      // gSearch;
+    };
+
+    recognition.onspeechend = function() {
+      recognition.stop();
+    };
+    recognition.onaudiostart = function() {
+      // console.log("sound");
+      var sound = new Audio();
+      sound.src = "assets/sounds/didong.mp3";
+      sound.play();
+    };
+
+    recognition.onerror = function(event) {
+      console.log("Error occurred in recognition: " + event.error);
+    };
+
+    recognition.start();
+  }
 }
