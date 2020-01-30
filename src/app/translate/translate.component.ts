@@ -9,7 +9,16 @@ declare var webkitSpeechRecognition: any;
   styleUrls: ["./translate.component.css"]
 })
 export class TranslateComponent implements OnInit {
-  constructor(private as: AppService) {}
+  constructor(private as: AppService) {
+    TranslateComponent.lang1 = this.lang;
+    TranslateComponent.query1 = this.query;
+    TranslateComponent.selectedInputLang1 = this.selectedInputLang;
+    TranslateComponent.selectedOutputLang1 = this.selectedOutputLang;
+    TranslateComponent.as1 = this.as;
+    TranslateComponent.LangCode1 = this.LangCode;
+    TranslateComponent.LangNames1 = this.LangNames;
+    TranslateComponent.langs1 = this.langs;
+  }
 
   ngOnInit() {
     this.onPageOpen();
@@ -30,27 +39,39 @@ export class TranslateComponent implements OnInit {
 
   selectedInputLang = ["Any"];
 
+  static lang1;
+  static query1;
+  static selectedOutputLang1;
+  static as1;
+  static selectedInputLang1;
   // voiceCommand = "Automatic";
   Object = Object;
-  sendQuery() {
-    this.as.query = (<HTMLInputElement>document.getElementById("text1")).value;
+  static sendQuery1() {
+    this.as1.query = (<HTMLInputElement>document.getElementById("text1")).value;
 
-    this.as.sendQuery(
-      this.LangCode[this.LangNames.indexOf(this.selectedOutputLang[0])]
+    this.as1.sendQuery(
+      this.LangCode1[this.LangNames1.indexOf(this.selectedOutputLang1[0])]
     );
   }
-  setResult() {
-    var result = this.as.output.out;
+  sendQuery() {
+    TranslateComponent.sendQuery1();
+  }
+  static setResult1() {
+    var result = this.as1.output.out;
     // console.log(result);
     (<HTMLInputElement>document.getElementById("output")).value = result;
     var utterThis = new SpeechSynthesisUtterance(result);
-    utterThis.lang = this.LangCode[
-      this.LangNames.indexOf(this.selectedOutputLang[0])
+    utterThis.lang = this.LangCode1[
+      this.LangNames1.indexOf(this.selectedOutputLang1[0])
     ];
     // console.log(speechSynthesis.getVoices());
     speechSynthesis.speak(utterThis);
   }
+  setResult() {
+    TranslateComponent.setResult1();
+  }
 
+  static langs1;
   langs = {
     auto: "Any",
     af: "Afrikaans",
@@ -162,18 +183,22 @@ export class TranslateComponent implements OnInit {
 
   LangNames = Object.values(this.langs);
   LangCode = Object.keys(this.langs);
-
+  static LangNames1;
+  static LangCode1;
   voiceInputLang() {
+    TranslateComponent.voiceInputLang1();
+  }
+  static voiceInputLang1() {
     var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
     var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
-    var LangNames = this.LangNames;
-    var LangCode = this.LangCode;
+    var LangNames = this.LangNames1;
+    var LangCode = this.LangCode1;
 
     var grammar = "#JSGF V1.0;";
     var recognition = new SpeechRecognition();
 
-    var selectedInputLang = this.selectedInputLang;
-    var selectedOutputLang = this.selectedOutputLang;
+    var selectedInputLang = this.selectedInputLang1;
+    var selectedOutputLang = this.selectedOutputLang1;
     var speechRecognitionList = new SpeechGrammarList();
     speechRecognitionList.addFromString(grammar, 1);
     recognition.grammars = speechRecognitionList;
@@ -189,9 +214,11 @@ export class TranslateComponent implements OnInit {
       if (LangNames.includes(command)) {
         selectedInputLang[0] = command;
         (<HTMLInputElement>document.getElementById("text1")).focus();
+        TranslateComponent.onInputTaken();
       } else {
         selectedInputLang[0] = "Any";
         (<HTMLInputElement>document.getElementById("text1")).focus();
+        TranslateComponent.onPageOpen1();
       }
       console.log(command);
 
@@ -219,26 +246,28 @@ export class TranslateComponent implements OnInit {
 
     recognition.start();
   }
-
   voiceInputSpeech() {
+    TranslateComponent.voiceInputSpeech1();
+  }
+  static voiceInputSpeech1() {
     var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
     var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
-    var as = this.as;
-    var query = this.query;
-    var LangNames = this.LangNames;
-    var LangCode = this.LangCode;
+    var as = this.as1;
+    var query = this.query1;
+    var LangNames = this.LangNames1;
+    var LangCode = this.LangCode1;
 
     var grammar = "#JSGF V1.0;";
     var recognition = new SpeechRecognition();
-    var selectedInputLang = this.selectedInputLang;
-    var selectedOutputLang = this.selectedOutputLang;
+    var selectedInputLang = this.selectedInputLang1;
+    var selectedOutputLang = this.selectedOutputLang1;
     var speechRecognitionList = new SpeechGrammarList();
 
     speechRecognitionList.addFromString(grammar, 1);
     recognition.grammars = speechRecognitionList;
     recognition.continuous = false;
-    recognition.lang = this.LangCode[
-      this.LangNames.indexOf(this.selectedInputLang[0])
+    recognition.lang = this.LangCode1[
+      this.LangNames1.indexOf(this.selectedInputLang1[0])
     ];
     recognition.interimResults = false;
 
@@ -277,18 +306,20 @@ export class TranslateComponent implements OnInit {
 
     recognition.start();
   }
-
   voiceOutputLang() {
+    TranslateComponent.voiceOutputLang1();
+  }
+  static voiceOutputLang1() {
     var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
     var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
-    var LangNames = this.LangNames;
-    var LangCode = this.LangCode;
+    var LangNames = this.LangNames1;
+    var LangCode = this.LangCode1;
 
     var grammar = "#JSGF V1.0;";
     var recognition = new SpeechRecognition();
 
-    var selectedInputLang = this.selectedInputLang;
-    var selectedOutputLang = this.selectedOutputLang;
+    var selectedInputLang = this.selectedInputLang1;
+    var selectedOutputLang = this.selectedOutputLang1;
     var speechRecognitionList = new SpeechGrammarList();
     speechRecognitionList.addFromString(grammar, 1);
     recognition.grammars = speechRecognitionList;
@@ -304,6 +335,7 @@ export class TranslateComponent implements OnInit {
       if (LangNames.includes(command)) {
         selectedOutputLang[0] = command;
         (<HTMLInputElement>document.getElementById("outputSelect")).focus();
+        TranslateComponent.onOutputLangTaken();
       } else {
         // selectedOutputLang[0] = "";
         (<HTMLInputElement>document.getElementById("outputSelect")).focus();
@@ -337,16 +369,74 @@ export class TranslateComponent implements OnInit {
 
   onPageOpen() {
     var synth = window.speechSynthesis;
-
     var utterance1 = new SpeechSynthesisUtterance(
       "Hello user, Welcome to google translate!, please tell me which language do you want to translate?"
     );
-    var voiceInputLang = this.voiceInputLang;
     synth.speak(utterance1);
     var s = setInterval(function() {
       if (!synth.speaking) {
         clearInterval(s);
-        voiceInputLang();
+        TranslateComponent.voiceInputLang1();
+      }
+    }, 1000);
+  }
+  static onPageOpen1() {
+    var synth = window.speechSynthesis;
+    var utterance1 = new SpeechSynthesisUtterance(
+      "Sorry I didn't get it, please tell me again?"
+    );
+    synth.speak(utterance1);
+    var s = setInterval(function() {
+      if (!synth.speaking) {
+        clearInterval(s);
+        TranslateComponent.voiceInputLang1();
+      }
+    }, 1000);
+  }
+
+  static onInputTaken() {
+    var synth = window.speechSynthesis;
+    var utterance1 = new SpeechSynthesisUtterance(
+      "Okay, you selected " +
+        TranslateComponent.selectedInputLang1[0] +
+        "as your input language, now please tell me to which language do you want to translate?"
+    );
+    utterance1.lang = "en-IN";
+    synth.speak(utterance1);
+    var s = setInterval(function() {
+      if (!synth.speaking) {
+        clearInterval(s);
+        TranslateComponent.voiceOutputLang1();
+      }
+    }, 1000);
+  }
+
+  static onInputTaken1() {
+    var synth = window.speechSynthesis;
+    var utterance1 = new SpeechSynthesisUtterance(
+      "Sorry I didn't get it, please tell me again?"
+    );
+    synth.speak(utterance1);
+    var s = setInterval(function() {
+      if (!synth.speaking) {
+        clearInterval(s);
+        TranslateComponent.voiceOutputLang1();
+      }
+    }, 1000);
+  }
+
+  static onOutputLangTaken() {
+    var synth = window.speechSynthesis;
+    var utterance1 = new SpeechSynthesisUtterance(
+      "You selected " +
+        TranslateComponent.selectedOutputLang1[0] +
+        "as your output lang, now please dictate your content"
+    );
+    synth.speak(utterance1);
+    var s = setInterval(function() {
+      if (!synth.speaking) {
+        clearInterval(s);
+        TranslateComponent.voiceInputSpeech1();
       }
     }, 1000);
   }

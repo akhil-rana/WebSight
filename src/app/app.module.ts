@@ -23,6 +23,7 @@ import { MainPComponent } from "./main-p/main-p.component";
 import { FeaturesComponent } from "./main-p/features/features.component";
 import { SigninupComponent } from "./main-p/signinup/signinup.component";
 import { TranslateComponent } from "./translate/translate.component";
+
 import { MatSelectModule } from "@angular/material/select";
 
 @NgModule({
