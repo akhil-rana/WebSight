@@ -1,4 +1,13 @@
-<br /><br /><br />
+<mat-toolbar style="display: flex;" color="primary">
+  <button
+    [routerLink]="['/']"
+    routerLinkActive="router-link-active"
+    mat-icon-button
+  >
+    <mat-icon>arrow_back</mat-icon></button
+  >&nbsp; &nbsp;<mat-icon>g_translate</mat-icon> &nbsp; Google Translate
+</mat-toolbar>
+<br />
 <div style="text-align: center;">
   <mat-form-field style="width: 20em !important;   font-size: large;">
     <textarea
@@ -8,7 +17,7 @@
       id="text1"
       [(ngModel)]="query"
       matInput
-      placeholder="Any language here"
+      placeholder="{{ selectedInputLang[0] }} language here"
       name="sample"
     >
     </textarea>
@@ -22,16 +31,16 @@
   <br />
 
   <mat-form-field>
-    <mat-label>Language</mat-label>
+    <mat-label>Input Language</mat-label>
     <mat-select [(value)]="selectedInputLang[0]">
       <mat-option *ngFor="let item of LangNames" [value]="item">
         {{ item }}
       </mat-option>
     </mat-select>
   </mat-form-field>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;
 
-  <button (click)="voiceInputLang()" mat-mini-fab color="primary">
+  <button (click)="voiceInputLang()" mat-button color="primary">
     <mat-icon>mic</mat-icon>
   </button>
 
@@ -40,14 +49,16 @@
   <br />
   <br /><br />
 
-  <button (click)="sendQuery()" mat-fab color="primary">
-    <mat-icon>g_translate</mat-icon>
+  <button (click)="sendQuery()" mat-flat-button color="primary">
+    <mat-icon>translate</mat-icon><mat-icon>swap_vert</mat-icon> Translate
   </button>
   <br />
+  <br />
+
   <br /><br />
   <mat-form-field>
-    <mat-label>Language</mat-label>
-    <mat-select [(value)]="selectedOutputLang[0]">
+    <mat-label>Output Language</mat-label>
+    <mat-select id="outputSelect" [(value)]="selectedOutputLang[0]">
       <mat-option
         *ngFor="
           let item of LangNames | slice: 1:LangNames.length;
@@ -59,13 +70,18 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
+  &nbsp;
+
+  <button (click)="voiceOutputLang()" mat-button color="primary">
+    <mat-icon>mic</mat-icon>
+  </button>
   <br /><br />
-  <mat-form-field style="width: 20em !important; font-size: large;">
+  <mat-form-field style="width: 24em !important; font-size: large;">
     <textarea
-      matInput
       cdkTextareaAutosize
       cdkAutosizeMinRows="3"
       cdkAutosizeMaxRows="10"
+      matInput
       id="output"
       disabled
       style="color: black;"
