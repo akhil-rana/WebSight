@@ -12,6 +12,7 @@ export class TranslateComponent implements OnInit {
   constructor(private as: AppService) {}
 
   ngOnInit() {
+    this.onPageOpen();
     // this.selectedInputLang = this.voiceCommand;
     // console.log(this.LangNames);
     this.as.LangCode = this.LangCode;
@@ -332,5 +333,21 @@ export class TranslateComponent implements OnInit {
     };
 
     recognition.start();
+  }
+
+  onPageOpen() {
+    var synth = window.speechSynthesis;
+
+    var utterance1 = new SpeechSynthesisUtterance(
+      "Hello user, Welcome to google translate!, please tell me which language do you want to translate?"
+    );
+    var voiceInputLang = this.voiceInputLang;
+    synth.speak(utterance1);
+    var s = setInterval(function() {
+      if (!synth.speaking) {
+        clearInterval(s);
+        voiceInputLang();
+      }
+    }, 1000);
   }
 }
