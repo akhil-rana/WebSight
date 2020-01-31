@@ -17,6 +17,7 @@ export class WeatherComponent implements OnInit {
   }
   city;
   weather;
+  temperature;
   cityWeaPass() {
     this.as.city = this.city;
 
@@ -24,6 +25,7 @@ export class WeatherComponent implements OnInit {
   }
   cityWeaRec() {
     this.weather = this.as.woutput;
-    console.log(this.weather);
+    // console.log(this.weather);
+    this.temperature = "Temperature: " + this.weather.main.temp + "° C";
   }
 }
