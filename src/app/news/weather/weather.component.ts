@@ -14,11 +14,12 @@ export class WeatherComponent implements OnInit {
         this.cityWeaRec();
       });
     }
-    this.as.city = this.city;
   }
   city;
   weather;
   cityWeaPass() {
+    this.as.city = this.city;
+
     this.as.weather();
   }
   cityWeaRec() {
