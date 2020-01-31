@@ -25,6 +25,8 @@ import { SigninupComponent } from "./main-p/signinup/signinup.component";
 import { TranslateComponent } from "./translate/translate.component";
 
 import { MatSelectModule } from "@angular/material/select";
+import { NewsComponent } from './news/news.component';
+import { WeatherComponent } from './news/weather/weather.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { MatSelectModule } from "@angular/material/select";
     MainPComponent,
     FeaturesComponent,
     SigninupComponent,
-    TranslateComponent
+    TranslateComponent,
+    NewsComponent,
+    WeatherComponent
   ],
   imports: [
     BrowserModule,

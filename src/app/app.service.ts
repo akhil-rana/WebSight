@@ -18,6 +18,10 @@ export class AppService {
 
   resultPass3 = new EventEmitter();
   resultRec3: Subscription;
+
+  resultPass4 = new EventEmitter();
+  resultRec4: Subscription;
+
   query;
   output;
   LangCode;
@@ -59,6 +63,26 @@ export class AppService {
           // console.log(response);
           this.output = response;
           this.resultPass3.emit();
+        },
+        error => {
+          console.log("error", error);
+        }
+      );
+  }
+
+  city;
+  woutput;
+  weather() {
+    const wquery = {
+      input: this.city
+    };
+    this.http
+      .post("https://websight-backend.herokuapp.com/news/weather", wquery)
+      .subscribe(
+        response => {
+          console.log(response);
+          this.woutput = response;
+          this.resultPass4.emit();
         },
         error => {
           console.log("error", error);
