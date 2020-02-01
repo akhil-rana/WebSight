@@ -1,9 +1,9 @@
-<mat-form-field>
+<!-- <mat-form-field>
   <input [(ngModel)]="city" matInput placeholder="City name" />
-</mat-form-field>
+</mat-form-field> -->
 <br /><br />
 <button (click)="cityWeaPass()" mat-flat-button color="primary">
   Show weather
 </button>
-<p>Weather in {{ city }}</p>
+<p *ngIf="flag == 1">Weather in {{ city }}</p>
 <p>{{ temperature }}</p>

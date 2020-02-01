@@ -72,9 +72,10 @@ export class AppService {
 
   city;
   woutput;
-  weather() {
+  weather(lon, lat) {
     const wquery = {
-      input: this.city
+      lon: lon,
+      lat: lat
     };
     this.http
       .post("https://websight-backend.herokuapp.com/news/weather", wquery)
