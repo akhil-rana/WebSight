@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AppService } from "../../app.service";
-
+import * as $ from "jquery";
 @Component({
   selector: "app-weather",
   templateUrl: "./weather.component.html",
@@ -15,6 +15,7 @@ export class WeatherComponent implements OnInit {
         this.cityWeaRec();
       });
     }
+    this.cityWeaPass();
   }
   city;
   flag = 0;
@@ -36,6 +37,10 @@ export class WeatherComponent implements OnInit {
     try {
       this.flag = 1;
       this.city = this.weather.name;
+      var iconcode = this.weather.weather[0].icon;
+      var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+      $("#wicon").attr("src", iconurl);
+      $("#wicon").css("display", "block");
       this.temperature = "Temperature: " + this.weather.main.temp + "° C";
     } catch (error) {
       this.flag = 0;

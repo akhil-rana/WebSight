@@ -1,9 +1,17 @@
 <!-- <mat-form-field>
   <input [(ngModel)]="city" matInput placeholder="City name" />
 </mat-form-field> -->
-<br /><br />
-<button (click)="cityWeaPass()" mat-flat-button color="primary">
-  Show weather
-</button>
+<nav class="navbar navbar-dark bg-primary">
+  <a class="navbar-brand">News</a>
+</nav>
+
 <p *ngIf="flag == 1">Weather in {{ city }}</p>
 <p>{{ temperature }}</p>
+<img
+  width="70px"
+  height="70px"
+  id="wicon"
+  style="display: none;"
+  src=""
+  alt=""
+/>
