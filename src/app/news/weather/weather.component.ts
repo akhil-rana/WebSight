@@ -24,6 +24,7 @@ export class WeatherComponent implements OnInit {
   latitude;
   longitude;
   cityWeaPass() {
+    // location.reload(true);
     var as = this.as;
     navigator.geolocation.getCurrentPosition(success);
     function success(pos) {
@@ -38,7 +39,7 @@ export class WeatherComponent implements OnInit {
       this.flag = 1;
       this.city = this.weather.name;
       var iconcode = this.weather.weather[0].icon;
-      var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+      var iconurl = "https://openweathermap.org/img/wn/" + iconcode + "@2x.png";
       $("#wicon").attr("src", iconurl);
       $("#wicon").css("display", "block");
       this.temperature = "Temperature: " + this.weather.main.temp + "° C";
