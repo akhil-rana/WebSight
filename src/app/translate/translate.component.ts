@@ -440,4 +440,8 @@ export class TranslateComponent implements OnInit {
       }
     }, 1000);
   }
+
+  goBack() {
+    window.history.back();
+  }
 }

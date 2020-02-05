@@ -24,24 +24,23 @@
     </mat-card-content>
   </mat-card>
 
-  <mat-card
-    [routerLink]="['/news/weather']"
-    routerLinkActive="router-link-active"
-  >
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-imageb"></div>
-      <div class="gsearchtitle">
-        <mat-card-title>NEWS</mat-card-title>
-        <mat-card-subtitle>News Service</mat-card-subtitle>
-      </div>
-    </mat-card-header>
-    <img class="news" mat-card-image src="/assets/images/news.png" alt="" />
-    <mat-card-content>
-      <p>
-        Common topics for news reports are included in this forum.
-      </p>
-    </mat-card-content>
-  </mat-card>
+  <a href="/news/weather" style="margin: 0px auto;">
+    <mat-card>
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-imageb"></div>
+        <div class="gsearchtitle">
+          <mat-card-title>NEWS</mat-card-title>
+          <mat-card-subtitle>News Service</mat-card-subtitle>
+        </div>
+      </mat-card-header>
+      <img class="news" mat-card-image src="/assets/images/news.png" alt="" />
+      <mat-card-content>
+        <p>
+          Common topics for news reports are included in this forum.
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </a>
   <mat-card class="example-card">
     <mat-card-header>
       <div mat-card-avatar class="example-header-imagem"></div>

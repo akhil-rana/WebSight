@@ -1,10 +1,12 @@
-<!-- <mat-form-field>
-  <input [(ngModel)]="city" matInput placeholder="City name" />
-</mat-form-field> -->
-<nav class="navbar navbar-dark bg-primary">
-  <a class="navbar-brand">News</a>
-</nav>
+<mat-toolbar style="display: flex;" color="primary">
+  <button (click)="goBack()" mat-icon-button>
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  &nbsp; &nbsp; <img src="assets/images/newsicon.png" alt="" />&nbsp; News
+</mat-toolbar>
 
 <p *ngIf="flag == 1">Weather in {{ city }}</p>
 <p>{{ temperature }}</p>
-<img id="wicon" style="display: none;" src="" alt="" />
+<b>
+  <i id="wicon" style="display: none; font-size: 3em;" class=""></i>
+</b>

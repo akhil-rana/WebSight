@@ -163,4 +163,8 @@ export class SearchInputComponent implements OnInit {
       (<HTMLInputElement>document.getElementById("searchKey")).blur();
     })();
   }
+
+  goBack() {
+    window.history.back();
+  }
 }

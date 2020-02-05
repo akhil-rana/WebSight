@@ -1,10 +1,6 @@
 <div style="text-align: center;">
   <mat-toolbar style="display: flex;" color="primary">
-    <button
-      [routerLink]="['/']"
-      routerLinkActive="router-link-active"
-      mat-icon-button
-    >
+    <button (click)="goBack()" mat-icon-button>
       <mat-icon>arrow_back</mat-icon></button
     >&nbsp; &nbsp;
     <img

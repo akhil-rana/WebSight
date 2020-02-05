@@ -1,9 +1,5 @@
 <mat-toolbar style="display: flex;" color="primary">
-  <button
-    [routerLink]="['/']"
-    routerLinkActive="router-link-active"
-    mat-icon-button
-  >
+  <button (click)="goBack()" mat-icon-button>
     <mat-icon>arrow_back</mat-icon></button
   >&nbsp; &nbsp;<mat-icon>g_translate</mat-icon> &nbsp; Google Translate
 </mat-toolbar>

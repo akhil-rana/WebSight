@@ -39,13 +39,16 @@ export class WeatherComponent implements OnInit {
       this.flag = 1;
       this.city = this.weather.name;
       var iconcode = this.weather.weather[0].icon;
-      var iconurl = "https://openweathermap.org/img/wn/" + iconcode + "@2x.png";
-      $("#wicon").attr("src", iconurl);
+      var iconurl = "owi owi-" + iconcode;
+      $("#wicon").attr("class", iconurl);
       $("#wicon").css("display", "block");
       this.temperature = "Temperature: " + this.weather.main.temp + "° C";
     } catch (error) {
       this.flag = 0;
       console.log(error);
     }
+  }
+  goBack() {
+    window.history.back();
   }
 }
