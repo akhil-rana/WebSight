@@ -10,6 +10,10 @@ export class WeatherComponent implements OnInit {
   constructor(private as: AppService) {}
 
   ngOnInit() {
+    // const tag = document.createElement("script");
+
+    // tag.src = "https://www.youtube.com/iframe_api";
+    // document.body.appendChild(tag);
     if (this.as.resultRec4 == undefined) {
       this.as.resultRec4 = this.as.resultPass4.subscribe((name: string) => {
         this.cityWeaRec();
@@ -18,6 +22,7 @@ export class WeatherComponent implements OnInit {
     this.cityWeaPass();
   }
   city;
+  wCond;
   flag = 0;
   weather;
   temperature;
@@ -38,6 +43,7 @@ export class WeatherComponent implements OnInit {
     try {
       this.flag = 1;
       this.city = this.weather.name;
+      this.wCond = this.weather.weather[0].main;
       var iconcode = this.weather.weather[0].icon;
       var iconurl = "owi owi-" + iconcode;
       $("#wicon").attr("class", iconurl);

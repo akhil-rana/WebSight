@@ -1,6 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -23,10 +22,10 @@ import { MainPComponent } from "./main-p/main-p.component";
 import { FeaturesComponent } from "./main-p/features/features.component";
 import { SigninupComponent } from "./main-p/signinup/signinup.component";
 import { TranslateComponent } from "./translate/translate.component";
-
+import { YouTubePlayerModule } from "@angular/youtube-player";
 import { MatSelectModule } from "@angular/material/select";
-import { NewsComponent } from './news/news.component';
-import { WeatherComponent } from './news/weather/weather.component';
+import { NewsComponent } from "./news/news.component";
+import { WeatherComponent } from "./news/weather/weather.component";
 
 @NgModule({
   declarations: [
@@ -56,7 +55,8 @@ import { WeatherComponent } from './news/weather/weather.component';
     MatListModule,
     MatCardModule,
     MatDividerModule,
-    MatSelectModule
+    MatSelectModule,
+    YouTubePlayerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
