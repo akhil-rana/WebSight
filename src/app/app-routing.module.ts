@@ -3,8 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { MainPComponent } from "./main-p/main-p.component";
 import { SpeechComponent } from "./speech/speech.component";
 import { TranslateComponent } from "./translate/translate.component";
-import { WeatherComponent } from "./news/weather/weather.component";
-
+import { NewsComponent } from "./news/news.component";
 const routes: Routes = [
   {
     path: "",
@@ -19,8 +18,8 @@ const routes: Routes = [
     component: TranslateComponent
   },
   {
-    path: "news/weather",
-    component: WeatherComponent
+    path: "news",
+    component: NewsComponent
   }
 ];
 

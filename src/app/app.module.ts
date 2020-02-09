@@ -26,6 +26,7 @@ import { YouTubePlayerModule } from "@angular/youtube-player";
 import { MatSelectModule } from "@angular/material/select";
 import { NewsComponent } from "./news/news.component";
 import { WeatherComponent } from "./news/weather/weather.component";
+import { InshortsHeadlinesComponent } from './news/inshorts-headlines/inshorts-headlines.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { WeatherComponent } from "./news/weather/weather.component";
     SigninupComponent,
     TranslateComponent,
     NewsComponent,
-    WeatherComponent
+    WeatherComponent,
+    InshortsHeadlinesComponent
   ],
   imports: [
     BrowserModule,

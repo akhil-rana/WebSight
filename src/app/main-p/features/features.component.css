@@ -102,7 +102,9 @@ mat-card {
   /* display: table-cell;
   vertical-align: middle; */
   margin: 0px auto;
+  /* margin-left: 2em; */
   margin-top: 2em;
+
   /* margin-left: 5em; */
   float: left;
   transition: 0.4s;
