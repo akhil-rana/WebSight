@@ -22,6 +22,9 @@ export class AppService {
   resultPass4 = new EventEmitter();
   resultRec4: Subscription;
 
+  resultPass5 = new EventEmitter();
+  resultRec5: Subscription;
+
   query;
   output;
   LangCode;
@@ -90,4 +93,6 @@ export class AppService {
         }
       );
   }
+
+  //
 }

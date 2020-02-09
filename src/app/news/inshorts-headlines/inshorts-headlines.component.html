@@ -1,0 +1,9 @@
+<div *ngIf="flag == 1">
+  <mat-card
+    style="background: aqua; margin: 1em;"
+    *ngFor="let headL of headLines.texts; let i = index"
+  >
+    <mat-card-title>{{ i + 1 }}<br />{{ headL }}</mat-card-title>
+    <mat-card-content>{{ headLines.content[i] }}</mat-card-content>
+  </mat-card>
+</div>
