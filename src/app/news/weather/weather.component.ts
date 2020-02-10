@@ -17,6 +17,7 @@ export class WeatherComponent implements OnInit {
     }
     this.cityWeaPass();
     WeatherComponent.weatherWidgetTime();
+    WeatherComponent.weatherWidgetDate();
     var now = new Date();
     var sec = now.getSeconds();
     var ssec = (60 - sec) * 1000;
@@ -56,6 +57,7 @@ export class WeatherComponent implements OnInit {
       this.feels_like =
         "Feels like:  " + Math.round(this.weather.main.feels_like) + "° C";
       var iconurl = "owi owi-" + iconcode;
+      $("#WeatherWidget").css("display", "block");
       $("#wicon").attr("class", iconurl);
       $("#wicon").css("display", "inline");
       this.temperature = Math.round(this.weather.main.temp) + "° C";
@@ -66,16 +68,88 @@ export class WeatherComponent implements OnInit {
   }
 
   static weatherWidgetTime() {
-    var now = new Date();
-    var hours = now.getHours().toString();
-    var minutes = now.getMinutes().toString();
+    let now = new Date();
+    let hours = now.getHours().toString();
+    let minutes = now.getMinutes().toString();
     if (hours.length != 2) {
       hours = "0" + hours;
     }
     if (minutes.length != 2) {
       minutes = "0" + minutes;
     }
-    // console.log("H: " + hours + "  M: " + minutes);
+    $("#hours").html(hours);
+    $("#minutes").html(minutes);
+  }
+
+  static weatherWidgetDate() {
+    let now = new Date();
+
+    var month;
+    switch (now.getMonth()) {
+      case 0:
+        month = "January";
+        break;
+      case 1:
+        month = "February";
+        break;
+      case 2:
+        month = "March";
+        break;
+      case 3:
+        month = "April";
+        break;
+      case 4:
+        month = "May";
+        break;
+      case 5:
+        month = "June";
+        break;
+      case 6:
+        month = "July";
+        break;
+      case 7:
+        month = "August";
+        break;
+      case 8:
+        month = "September";
+        break;
+      case 9:
+        month = "October";
+        break;
+      case 10:
+        month = "November";
+        break;
+      case 11:
+        month = "December";
+        break;
+    }
+    var day;
+    switch (now.getDay()) {
+      case 0:
+        day = "Sunday";
+        break;
+      case 1:
+        day = "Monday";
+        break;
+      case 2:
+        day = "Tuesday";
+        break;
+      case 3:
+        day = "Wednesday";
+        break;
+      case 4:
+        day = "Thrusday";
+        break;
+      case 5:
+        day = "Friday";
+        break;
+      case 6:
+        day = "Saturday";
+        break;
+    }
+    let date = now.getDate() + " " + month + " " + now.getFullYear();
+    $("#date").html(date);
+    $("#day").html(day);
   }
 
   goBack() {

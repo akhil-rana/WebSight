@@ -6,15 +6,28 @@
   <div class="lead" style="font-size: 1.4em;">News</div>
 </mat-toolbar>
 <br />
-<div style="text-align: center;">
-  <p *ngIf="flag == 1">Weather in {{ city }}</p>
-  <i id="wicon" style="display: none; font-size: 3em; " class=""></i>
-  &nbsp;&nbsp;&nbsp;
-  <span style="font-size: 1.4em; position: relative; bottom: 0.7em;">
-    {{ temperature }}
-  </span>
-  <br />{{ wCond }} &nbsp;&nbsp;
-  {{ feels_like }}
+<div class="lead" style="text-align: center; display:none;" id="WeatherWidget">
+  <mat-card
+    style="width: 20em; height: 9em; margin: 0 auto; background: rgba(46, 107, 165, 0.527); "
+  >
+    <div style="position: absolute; right: 1em;">
+      <p *ngIf="flag == 1">{{ city }} | {{ wCond }}</p>
+      <i id="wicon" style="display: none; font-size: 3em; " class=""></i>
+      &nbsp;&nbsp;
+      <span style="font-size: 1.3em; position: relative; bottom: 0.7em;">
+        {{ temperature }}
+      </span>
+      <br />&nbsp;&nbsp;
+      {{ feels_like }}
+    </div>
+    <div style="position: absolute; left: 1em; top: 0.87em;">
+      <span id="date" style="position: relative; top: 0.6em;"></span><br />
+      <span style="font-size: 3.2em;">
+        <span id="hours"></span>:<span id="minutes"></span> </span
+      ><br />
+      <span id="day" style="position: relative; bottom: 0.6em;"></span>
+    </div>
+  </mat-card>
 </div>
 
 <!-- <youtube-player videoId="PRQCAL_RMVo" /> -->
