@@ -6,7 +6,11 @@
   <div class="lead" style="font-size: 1.4em;">News</div>
 </mat-toolbar>
 <br />
-<div class="lead" style="text-align: center; display:none;" id="WeatherWidget">
+<div
+  class="lead"
+  style="text-align: center; display:none; cursor: default;"
+  id="WeatherWidget"
+>
   <mat-card
     style="width: 18em; height: 9em; margin: 0 auto; background: rgba(46, 107, 165, 0.527); "
   >
@@ -20,7 +24,9 @@
       <br />&nbsp;&nbsp;
       {{ feels_like }}
     </div>
-    <div style="position: absolute; left: 1em; top: 0.87em;">
+    <div
+      style="position: absolute; left: 0.6em; top: 0.6em; border-right: 1px solid black; padding-right: 0.7em;"
+    >
       <span id="date" style="position: relative; top: 0.6em;"></span><br />
       <span style="font-size: 3.2em;">
         <span id="hours"></span>:<span id="minutes"></span> </span
