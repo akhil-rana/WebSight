@@ -1,6 +1,9 @@
+<br /><br />
+<mat-progress-bar mode="indeterminate" *ngIf="flag == 0"></mat-progress-bar>
+
 <div *ngIf="flag == 1">
   <mat-card
-    style="background: aqua; margin: 1em;"
+    style="background: rgb(230, 230, 230); margin: 1em;"
     *ngFor="let headL of headLines.texts; let i = index"
   >
     <mat-card-title>{{ i + 1 }}<br />{{ headL }}</mat-card-title>

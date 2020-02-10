@@ -1,15 +1,13 @@
 span {
   margin-top: 10px;
   color: #afcbe9;
-  font-size: xx-large;
+
   /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;          */
   /* font-family: 'Courier New', Courier, monospace; */
 
   /* font-family: Georgia, 'Times New Roman', Times, serif; */
   /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
   /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;*/
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
   /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
 }

@@ -2,13 +2,20 @@
   <button (click)="goBack()" mat-icon-button>
     <mat-icon>arrow_back</mat-icon>
   </button>
-  &nbsp; &nbsp; <img src="assets/images/newsicon.png" alt="" />&nbsp; News
+  &nbsp; &nbsp; <img src="assets/images/newsicon.png" alt="" />&nbsp;&nbsp;
+  <div class="lead" style="font-size: 1.4em;">News</div>
 </mat-toolbar>
-
-<p *ngIf="flag == 1">Weather in {{ city }}</p>
-<p>{{ temperature }}</p>
-
-<i id="wicon" style="display: none; font-size: 3em; " class=""></i>{{ wCond }}
+<br />
+<div style="text-align: center;">
+  <p *ngIf="flag == 1">Weather in {{ city }}</p>
+  <i id="wicon" style="display: none; font-size: 3em; " class=""></i>
+  &nbsp;&nbsp;&nbsp;
+  <span style="font-size: 1.4em; position: relative; bottom: 0.7em;">
+    {{ temperature }}
+  </span>
+  <br />{{ wCond }} &nbsp;&nbsp;
+  {{ feels_like }}
+</div>
 
 <!-- <youtube-player videoId="PRQCAL_RMVo" /> -->
 <!-- <youtube-player videoId="dQw4w9WgXcQ" suggestedQuality="highres"> -->
