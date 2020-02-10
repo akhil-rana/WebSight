@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { AppService } from "../../app.service";
 import * as $ from "jquery";
+import { MatCard } from "@angular/material/card";
 @Component({
   selector: "app-weather",
   templateUrl: "./weather.component.html",
@@ -61,6 +62,10 @@ export class WeatherComponent implements OnInit {
       $("#wicon").attr("class", iconurl);
       $("#wicon").css("display", "inline");
       this.temperature = Math.round(this.weather.main.temp) + "° C";
+      if ($("#widget").width() < 370) {
+        $("#centerLine").css("border-right", "1px solid black");
+        $("#centerLine").css("padding-right", "1em");
+      }
     } catch (error) {
       this.flag = 0;
       console.log(error);

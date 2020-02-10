@@ -8,11 +8,12 @@
 <br />
 <div
   class="lead"
-  style="text-align: center; display:none; cursor: default;"
+  style="text-align: center; display:none; cursor: default; padding: 1em;"
   id="WeatherWidget"
 >
   <mat-card
-    style="width: 18em; height: 9em; margin: 0 auto; background: rgba(46, 107, 165, 0.527); "
+    id="widget"
+    style="min-width: 18em; max-width: 40em; height: 9em; margin: 0 auto; background: rgba(46, 107, 165, 0.527); "
   >
     <div style="position: absolute; right: 1em;">
       <p *ngIf="flag == 1">{{ city }} | {{ wCond }}</p>
@@ -25,7 +26,8 @@
       {{ feels_like }}
     </div>
     <div
-      style="position: absolute; left: 0.6em; top: 0.6em; border-right: 1px solid black; padding-right: 0.7em;"
+      id="centerLine"
+      style="position: absolute; left: 0.6em; top: 0.6em;  padding-right: 0.7em;"
     >
       <span id="date" style="position: relative; top: 0.6em;"></span><br />
       <span style="font-size: 3.2em;">
