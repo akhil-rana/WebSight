@@ -1,7 +1,41 @@
 <br /><br />
 <mat-progress-bar mode="indeterminate" *ngIf="flag == 0"></mat-progress-bar>
 
-<div *ngIf="flag == 1">
+<div *ngIf="flag == 1" style="display: inline-flex; flex-wrap: wrap;">
+  <div *ngFor="let headL of headLines.texts; let i = index">
+    <div class="col s12 m7" style="float:left">
+      <div class="card " style="width: 25em;">
+        <div class="card-image">
+          <img
+            src="https://static.getinpix.com/public/images/v1/variants/jpg/m/2020/02_feb/12_wed/img_1581478224745_170.jpg"
+          />
+          <span class="card-title">{{ i + 1 }}<br />{{ headL }}</span>
+        </div>
+        <div class="card-content">
+          <p>
+            {{ headLines.content[i] }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="col s12 m7">
+  <div class="card horizontal">
+    <div class="card-image">
+      <img
+        src="https://static.getinpix.com/public/images/v1/variants/jpg/m/2020/02_feb/12_wed/img_1581478224745_170.jpg"
+      />
+    </div>
+    <span class="card-stacked" style="display: flex;">
+      <span class="card-content" style=" float: left;">
+        I am a very simple card. I am good at containing small bits of
+        information.
+      </span>
+    </span>
+  </div>
+</div> -->
+<!-- <div *ngIf="flag == 1">
   <mat-card
     style="background: rgb(230, 230, 230); margin: 1em;"
     *ngFor="let headL of headLines.texts; let i = index"
@@ -9,4 +43,4 @@
     <mat-card-title>{{ i + 1 }}<br />{{ headL }}</mat-card-title>
     <mat-card-content>{{ headLines.content[i] }}</mat-card-content>
   </mat-card>
-</div>
+</div> -->
