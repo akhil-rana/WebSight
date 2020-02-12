@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { AppService } from "../../app.service";
 import * as $ from "jquery";
+
 @Component({
   selector: "app-weather",
   templateUrl: "./weather.component.html",
@@ -10,6 +11,19 @@ export class WeatherComponent implements OnInit {
   constructor(private as: AppService) {}
 
   ngOnInit() {
+    $(".navbarSearch").click(function(e) {
+      e.stopPropagation(); //stops click event from reaching document
+    });
+    $(document).click(function() {
+      $(".navbarSearch").animate(
+        {
+          width: "30%"
+        },
+        200
+      );
+      $("input.lead").css("color", "white");
+    });
+
     if (this.as.resultRec4 == undefined) {
       this.as.resultRec4 = this.as.resultPass4.subscribe((name: string) => {
         this.cityWeaRec();
@@ -158,5 +172,14 @@ export class WeatherComponent implements OnInit {
 
   goBack() {
     window.history.back();
+  }
+  searchClick() {
+    $(".navbarSearch").animate(
+      {
+        width: "100%"
+      },
+      300
+    );
+    $("input.lead").css("color", "black");
   }
 }
