@@ -1,14 +1,20 @@
 <br /><br />
 <mat-progress-bar mode="indeterminate" *ngIf="flag == 0"></mat-progress-bar>
 
-<div *ngIf="flag == 1" style="display: inline-flex; flex-wrap: wrap;">
-  <div *ngFor="let headL of headLines.texts; let i = index">
-    <div class="col s12 m7" style="float:left">
+<div
+  *ngIf="flag == 1"
+  style="display: flex; flex-wrap: wrap; align-content: center;"
+>
+  <div
+    *ngFor="let headL of headLines.texts; let i = index"
+    style="float: left; margin: 0 auto;"
+  >
+    <div class="col s12 m7" style="float:left;">
       <div class="card " style="width: 25em;">
         <div class="card-image">
-          <img
-            src="https://static.getinpix.com/public/images/v1/variants/jpg/m/2020/02_feb/12_wed/img_1581478224745_170.jpg"
-          />
+          <div class="imgnews">
+            <img height="300em" src="{{ headLines.imageCard[i] }}" />
+          </div>
           <span class="card-title">{{ i + 1 }}<br />{{ headL }}</span>
         </div>
         <div class="card-content">
