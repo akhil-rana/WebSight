@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "./app/news/weather/icons/css/open-weather-icons.css";
+@import "~materialize-css/dist/css/materialize.min.css";
 html,
 body {
   margin: 0;

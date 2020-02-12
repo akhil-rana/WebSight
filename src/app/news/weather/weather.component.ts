@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AppService } from "../../app.service";
 import * as $ from "jquery";
-import { MatCard } from "@angular/material/card";
 @Component({
   selector: "app-weather",
   templateUrl: "./weather.component.html",
@@ -143,7 +142,7 @@ export class WeatherComponent implements OnInit {
         day = "Wednesday";
         break;
       case 4:
-        day = "Thrusday";
+        day = "Thursday";
         break;
       case 5:
         day = "Friday";
