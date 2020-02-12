@@ -20,10 +20,13 @@
       <form>
         <div class="input-field   indigo">
           <input
+            (keyup.enter)="passNewsQuery()"
             class="lead"
+            [(ngModel)]="newsQuery"
             style="font-size: 1.5em; color: white;"
             id="search"
             type="search"
+            name="abcd"
             required
           />
           <label class="label-icon" for="search"

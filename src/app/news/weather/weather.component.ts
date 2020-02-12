@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AppService } from "../../app.service";
+import { HttpClient } from "@angular/common/http";
 import * as $ from "jquery";
 
 @Component({
@@ -8,7 +9,7 @@ import * as $ from "jquery";
   styleUrls: ["./weather.component.css"]
 })
 export class WeatherComponent implements OnInit {
-  constructor(private as: AppService) {}
+  constructor(private as: AppService, private http: HttpClient) {}
 
   ngOnInit() {
     $(".navbarSearch").click(function(e) {
@@ -181,5 +182,22 @@ export class WeatherComponent implements OnInit {
       300
     );
     $("input.lead").css("color", "black");
+  }
+
+  newsQuery;
+  passNewsQuery() {
+    let query = {
+      input: this.newsQuery
+    };
+    this.http
+      .post("https://websight-backend.herokuapp.com/news/gnews-search", query)
+      .subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log("error", error);
+        }
+      );
   }
 }
