@@ -1,3 +1,5 @@
+@import "~materialize-css/dist/css/materialize.min.css";
+
 .imgnews:after {
   content: "";
   position: absolute;
