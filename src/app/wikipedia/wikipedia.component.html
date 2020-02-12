@@ -1,0 +1,36 @@
+<div style="text-align: center;">
+  <mat-toolbar style="display: flex;" style="background: black;">
+    <button (click)="goBack()" mat-icon-button>
+      <mat-icon style="color: white;">arrow_back</mat-icon></button
+    >&nbsp; &nbsp;
+    <!-- <img
+      src="/assets/images/google.png"
+      alt=""
+      style="width: 2em; height: auto"
+    /> -->
+    <span class="lead" style="font-size: 1.2em; color: white;">Wikipedia</span>
+  </mat-toolbar>
+  <br /><br /><br />
+  <span
+    style="font-size: small; color: rgb(109, 109, 109); padding-bottom: 5px;"
+  >
+    Search here: &nbsp;&nbsp;
+  </span>
+  <mat-form-field style="width: 20em !important ;" class="example-full-width">
+    <input [(ngModel)]="query" id="searchKey" matInput />
+    <button mat-button matSuffix mat-icon-button aria-label="Clear">
+      <mat-icon id="micicon">close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <br />
+  <button id="voiceButton" mat-fab>
+    <mat-icon>mic</mat-icon>
+  </button>
+  <pre></pre>
+  <button (click)="send_query()" mat-fab>
+    <mat-icon>search</mat-icon>
+  </button>
+</div>
+<br /><br />
+<p *ngFor="let item of searchResult.content">{{ item }} <br /><br /></p>

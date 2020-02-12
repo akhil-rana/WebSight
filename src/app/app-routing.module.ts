@@ -4,6 +4,7 @@ import { MainPComponent } from "./main-p/main-p.component";
 import { SpeechComponent } from "./speech/speech.component";
 import { TranslateComponent } from "./translate/translate.component";
 import { NewsComponent } from "./news/news.component";
+import { WikipediaComponent } from "./wikipedia/wikipedia.component";
 const routes: Routes = [
   {
     path: "",
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: "news",
     component: NewsComponent
+  },
+  {
+    path: "wikipedia",
+    component: WikipediaComponent
   }
 ];
 
