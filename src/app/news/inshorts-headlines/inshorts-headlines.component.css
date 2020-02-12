@@ -5,7 +5,7 @@
   left: 0;
   bottom: 0;
   right: 0;
-  box-shadow: inset 0px 0px 400em black;
+  box-shadow: inset 0px 0px 10000em black;
 }
 .imgnews {
   background-size: cover;
