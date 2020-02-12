@@ -9,4 +9,5 @@
 }
 .imgnews {
   background-size: cover;
+  transition: 0.4s;
 }

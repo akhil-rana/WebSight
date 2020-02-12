@@ -51,7 +51,7 @@
   background-image: url("https://i.postimg.cc/pTnVj0dN/three.png");
 
   background-size: 2.5em;
-  /* background-repeat: no-repeat; */
+  background-repeat: no-repeat;
   background-position: left;
 }
 .example-header-images {
