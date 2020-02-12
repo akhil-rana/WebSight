@@ -29,6 +29,7 @@ import { WeatherComponent } from "./news/weather/weather.component";
 import { InshortsHeadlinesComponent } from "./news/inshorts-headlines/inshorts-headlines.component";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { WikipediaComponent } from './wikipedia/wikipedia.component';
+import { GoogleNewsSearchComponent } from './news/google-news-search/google-news-search.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { WikipediaComponent } from './wikipedia/wikipedia.component';
     NewsComponent,
     WeatherComponent,
     InshortsHeadlinesComponent,
-    WikipediaComponent
+    WikipediaComponent,
+    GoogleNewsSearchComponent
   ],
   imports: [
     BrowserModule,
