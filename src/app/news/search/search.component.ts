@@ -27,7 +27,7 @@ export class SearchComponent implements OnInit {
       }
       this.query1 = this.query;
       this.query = this.query.replace(/ /g, "+");
-      console.log(this.query);
+      // console.log(this.query);
     });
     this.contentSet();
 
@@ -66,7 +66,7 @@ export class SearchComponent implements OnInit {
       )
       .subscribe(
         response => {
-          console.log(response);
+          // console.log(response);
           // let url = "/news/search/" + this.query;
           this.newsSearchContent = response;
           this.contentTitles = this.newsSearchContent.titles;
