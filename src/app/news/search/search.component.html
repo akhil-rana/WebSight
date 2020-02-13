@@ -1,0 +1,41 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+/>
+<mat-toolbar class="deep-purple darken-4" style="display: flex; color: white;">
+  <button (click)="goBack()" mat-icon-button>
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  &nbsp; &nbsp;
+  <img
+    width="42em"
+    height="auto"
+    src="assets/images/newsicon.png"
+    alt=""
+  />&nbsp;&nbsp;&nbsp;
+  <div class="lead" style="font-size: 1.4em;">Results for "{{ query1 }}"</div>
+</mat-toolbar>
+
+<br /><br />
+<div
+  *ngFor="let item of contentTitles; let i = index"
+  style="align-content: center; margin-left: 2em; margin-right: 2em;"
+>
+  <mat-card
+    (click)="newsOpen(i)"
+    style="min-height: 12em; max-width: 55em; margin: 0 auto;"
+  >
+    <div style="float: right;">
+      <img
+        style="border-radius: 0.7em; width: 10em; height: 10em; margin-left: 1em;"
+        src="{{ contentImgUrls[i] }}"
+        alt=" "
+        srcset=""
+      />
+    </div>
+    <span class="lead" style="font-size: 2em;">
+      {{ contentTitles[i] }}
+    </span>
+  </mat-card>
+  <br /><br />
+</div>

@@ -29,6 +29,7 @@ export class AppService {
   output;
   LangCode;
   LangNames;
+  GoogleNewsScrapeObject;
   gSearch() {
     this.loadingPass.emit();
 

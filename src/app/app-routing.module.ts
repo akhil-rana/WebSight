@@ -5,6 +5,7 @@ import { SpeechComponent } from "./speech/speech.component";
 import { TranslateComponent } from "./translate/translate.component";
 import { NewsComponent } from "./news/news.component";
 import { WikipediaComponent } from "./wikipedia/wikipedia.component";
+import { SearchComponent } from "./news/search/search.component";
 const routes: Routes = [
   {
     path: "",
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: "wikipedia",
     component: WikipediaComponent
+  },
+  {
+    path: "news/search/:id",
+    component: SearchComponent
   }
 ];
 

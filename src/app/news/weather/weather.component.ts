@@ -12,19 +12,6 @@ export class WeatherComponent implements OnInit {
   constructor(private as: AppService, private http: HttpClient) {}
 
   ngOnInit() {
-    $(".navbarSearch").click(function(e) {
-      e.stopPropagation(); //stops click event from reaching document
-    });
-    $(document).click(function() {
-      $(".navbarSearch").animate(
-        {
-          width: "30%"
-        },
-        200
-      );
-      $("input.lead").css("color", "white");
-    });
-
     if (this.as.resultRec4 == undefined) {
       this.as.resultRec4 = this.as.resultPass4.subscribe((name: string) => {
         this.cityWeaRec();
@@ -169,35 +156,5 @@ export class WeatherComponent implements OnInit {
     let date = now.getDate() + " " + month + " " + now.getFullYear();
     $("#date").html(date);
     $("#day").html(day);
-  }
-
-  goBack() {
-    window.history.back();
-  }
-  searchClick() {
-    $(".navbarSearch").animate(
-      {
-        width: "100%"
-      },
-      300
-    );
-    $("input.lead").css("color", "black");
-  }
-
-  newsQuery;
-  passNewsQuery() {
-    let query = {
-      input: this.newsQuery
-    };
-    this.http
-      .post("https://websight-backend.herokuapp.com/news/gnews-search", query)
-      .subscribe(
-        response => {
-          console.log(response);
-        },
-        error => {
-          console.log("error", error);
-        }
-      );
   }
 }

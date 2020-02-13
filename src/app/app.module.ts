@@ -28,8 +28,10 @@ import { NewsComponent } from "./news/news.component";
 import { WeatherComponent } from "./news/weather/weather.component";
 import { InshortsHeadlinesComponent } from "./news/inshorts-headlines/inshorts-headlines.component";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
-import { WikipediaComponent } from './wikipedia/wikipedia.component';
-import { GoogleNewsSearchComponent } from './news/google-news-search/google-news-search.component';
+import { WikipediaComponent } from "./wikipedia/wikipedia.component";
+import { SearchComponent } from "./news/search/search.component";
+import { NewsNavbarComponent } from "./news/news-navbar/news-navbar.component";
+import { ScrollingModule } from "@angular/cdk/scrolling";
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import { GoogleNewsSearchComponent } from './news/google-news-search/google-news
     WeatherComponent,
     InshortsHeadlinesComponent,
     WikipediaComponent,
-    GoogleNewsSearchComponent
+    SearchComponent,
+    NewsNavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +67,8 @@ import { GoogleNewsSearchComponent } from './news/google-news-search/google-news
     MatDividerModule,
     MatSelectModule,
     YouTubePlayerModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    ScrollingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
