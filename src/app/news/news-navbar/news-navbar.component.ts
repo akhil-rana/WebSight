@@ -44,23 +44,8 @@ export class NewsNavbarComponent implements OnInit {
   newsQuery;
   flagSearch = 0;
   passNewsQuery() {
-    this.flagSearch = 1;
-    let query = {
-      input: this.newsQuery
-    };
-    this.http
-      .post("https://websight-backend.herokuapp.com/news/gnews-search", query)
-      .subscribe(
-        response => {
-          console.log(response);
-          let newsq = this.newsQuery.replace(/ /g, "+");
-          let url = "/news/search/" + newsq;
-          this.as.GoogleNewsScrapeObject = response;
-          this.router.navigateByUrl(url);
-        },
-        error => {
-          console.log("error", error);
-        }
-      );
+    let newsq = this.newsQuery.replace(/ /g, "+");
+    let url = "/news/search/" + newsq;
+    this.router.navigateByUrl(url);
   }
 }
