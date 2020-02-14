@@ -17,14 +17,23 @@
     <div *ngIf="i < 24" class="col s12 m7" style="float:left;">
       <div class="card " style="width: 24em;">
         <div class="card-image">
-          <div class="imgnews">
-            <img height="280em" src="{{ headLines.imageCard[i] }}" />
-          </div>
-          <div class="card-title">
-            <b>
-              {{ i + 1 }} <br />
-              <br />{{ headL }}
-            </b>
+          <div
+            class="imgnews"
+            [style.background-image]="imageUrl(headLines.imageCard[i])"
+            style="height: 18em; overflow:hidden; background-position: 50%; "
+          >
+            <div
+              class="BlackTint"
+              style="z-index: 1; height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background: rgba(0, 0, 0, 0.88);  "
+            >
+              <div
+                class="card-title display-3"
+                style="color: white; font-size: 1.7em;"
+              >
+                {{ i + 1 }} <br />
+                <br />{{ headL }}
+              </div>
+            </div>
           </div>
         </div>
         <div class="card-content">
@@ -36,27 +45,3 @@
     </div>
   </div>
 </div>
-<!-- <div class="col s12 m7">
-  <div class="card horizontal">
-    <div class="card-image">
-      <img
-        src="https://static.getinpix.com/public/images/v1/variants/jpg/m/2020/02_feb/12_wed/img_1581478224745_170.jpg"
-      />
-    </div>
-    <span class="card-stacked" style="display: flex;">
-      <span class="card-content" style=" float: left;">
-        I am a very simple card. I am good at containing small bits of
-        information.
-      </span>
-    </span>
-  </div>
-</div> -->
-<!-- <div *ngIf="flag == 1">
-  <mat-card
-    style="background: rgb(230, 230, 230); margin: 1em;"
-    *ngFor="let headL of headLines.texts; let i = index"
-  >
-    <mat-card-title>{{ i + 1 }}<br />{{ headL }}</mat-card-title>
-    <mat-card-content>{{ headLines.content[i] }}</mat-card-content>
-  </mat-card>
-</div> -->

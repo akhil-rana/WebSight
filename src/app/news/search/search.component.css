@@ -1,9 +1,12 @@
-mat-card:hover {
+mat-card {
+  cursor: default;
+  transition: 0.3s;
+}
+.matCardClass:hover {
   transform: scale(1.045);
 }
-mat-card {
+.matCardClass {
   transition: 0.3s;
-  cursor: default;
 }
 body {
   background: #e0e0e0;

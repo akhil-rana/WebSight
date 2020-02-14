@@ -61,22 +61,24 @@
     *ngFor="let item of contentTitlesUnique; let i = index"
     style="align-content: center; margin-left: 2em; margin-right: 2em;"
   >
-    <mat-card
-      (click)="newsOpen(i)"
+    <div
+      class="matCardClass"
       style="min-height: 12em; max-width: 55em; margin: 0 auto;"
     >
-      <div style="float: right;">
-        <img
-          style="border-radius: 0.7em; width: 10em; height: 10em; margin-left: 1em;"
-          src="{{ contentImgUrlsUnique[i] }}"
-          alt=" "
-          srcset=""
-        />
-      </div>
-      <div class="lead" style="font-size: 1.4em;">
-        {{ contentTitlesUnique[i] }}
-      </div>
-    </mat-card>
+      <mat-card (click)="newsOpen(i)" style="min-height: 11em;">
+        <div style="float: right;">
+          <img
+            style="border-radius: 0.7em; width: 9em; height: 9em; margin-left: 1em;"
+            src="{{ contentImgUrlsUnique[i] }}"
+            alt=" "
+            srcset=""
+          />
+        </div>
+        <div class="lead flow-text">
+          {{ contentTitlesUnique[i] }}
+        </div>
+      </mat-card>
+    </div>
     <br /><br />
   </div>
 </div>

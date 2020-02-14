@@ -14,6 +14,9 @@ export class InshortsHeadlinesComponent implements OnInit {
   ngOnInit() {
     this.inshorts();
   }
+  imageUrl(img) {
+    return "url(" + img + ")";
+  }
   headLines;
   nothing;
   flag = 0;
