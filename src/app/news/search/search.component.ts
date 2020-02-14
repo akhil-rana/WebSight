@@ -110,7 +110,7 @@ export class SearchComponent implements OnInit {
       );
   }
   newsOpen(i) {
-    var win = window.open(this.contentUrls[i], "_blank");
+    var win = window.open(this.contentUrlsUnique[i], "_blank");
     win.focus();
   }
   newsQuery;
