@@ -97,6 +97,7 @@ export class SearchComponent implements OnInit {
               this.contentUrlsUnique.splice(i, 1);
               break;
             }
+            if (i == 100) break;
             i++;
           }
           this.flag = 1;
