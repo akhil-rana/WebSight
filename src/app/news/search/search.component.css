@@ -5,3 +5,12 @@ mat-card {
   transition: 0.3s;
   cursor: default;
 }
+body {
+  background: #e0e0e0;
+}
+#loadingSpinner {
+  min-width: 5em;
+  width: 5em;
+  height: 5em;
+  margin: 1.7em;
+}

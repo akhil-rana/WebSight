@@ -58,7 +58,7 @@
 <br /><br />
 <div *ngIf="flag == 1">
   <div
-    *ngFor="let item of contentTitles; let i = index"
+    *ngFor="let item of contentTitlesUnique; let i = index"
     style="align-content: center; margin-left: 2em; margin-right: 2em;"
   >
     <mat-card
@@ -68,15 +68,43 @@
       <div style="float: right;">
         <img
           style="border-radius: 0.7em; width: 10em; height: 10em; margin-left: 1em;"
-          src="{{ contentImgUrls[i] }}"
+          src="{{ contentImgUrlsUnique[i] }}"
           alt=" "
           srcset=""
         />
       </div>
-      <span class="lead" style="font-size: 2em;">
-        {{ contentTitles[i] }}
-      </span>
+      <div class="lead" style="font-size: 1.4em;">
+        {{ contentTitlesUnique[i] }}
+      </div>
     </mat-card>
     <br /><br />
+  </div>
+</div>
+<div
+  *ngIf="flag == 0"
+  class="d-flex justify-content-center"
+  style="display: flex; flex-wrap: wrap;"
+>
+  <div style="display: block;">
+    <div class="spinner-grow text-primary" id="loadingSpinner" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-secondary" id="loadingSpinner" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-success" id="loadingSpinner" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <div style="display: block;">
+    <div class="spinner-grow text-danger" id="loadingSpinner" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-warning" id="loadingSpinner" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <div class="spinner-grow text-info" id="loadingSpinner" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
   </div>
 </div>

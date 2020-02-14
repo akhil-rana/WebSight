@@ -53,6 +53,9 @@ export class SearchComponent implements OnInit {
   contentImgUrls = [];
   contentTitles = [];
   contentUrls = [];
+  contentImgUrlsUnique = [];
+  contentTitlesUnique = [];
+  contentUrlsUnique = [];
   flag = 0;
   contentSet() {
     this.flag = 0;
@@ -69,10 +72,35 @@ export class SearchComponent implements OnInit {
           // console.log(response);
           // let url = "/news/search/" + this.query;
           this.newsSearchContent = response;
-          this.contentTitles = this.newsSearchContent.titles;
-          this.contentImgUrls = this.newsSearchContent.imgUrl;
-          this.contentUrls = this.newsSearchContent.urls;
+          var contentTitles = this.newsSearchContent.titles;
+          var contentImgUrls = this.newsSearchContent.imgUrl;
+          var contentUrls = this.newsSearchContent.urls;
+          var contentImgUrlsUnique = [];
+          var contentTitlesUnique = [];
+          var contentUrlsUnique = [];
+          $.each(contentImgUrls, function(i, el) {
+            if ($.inArray(el, contentImgUrlsUnique) === -1) {
+              contentImgUrlsUnique.push(el);
+              contentTitlesUnique.push(contentTitles[i]);
+              contentUrlsUnique.push(contentUrls[i]);
+            }
+          });
+          this.contentTitlesUnique = contentTitlesUnique;
+          this.contentImgUrlsUnique = contentImgUrlsUnique;
+          this.contentUrlsUnique = contentUrlsUnique;
+
+          let i = 0;
+          while (1) {
+            if (this.contentImgUrlsUnique[i] == undefined) {
+              this.contentImgUrlsUnique.splice(i, 1);
+              this.contentTitlesUnique.splice(i, 1);
+              this.contentUrlsUnique.splice(i, 1);
+              break;
+            }
+            i++;
+          }
           this.flag = 1;
+
           // this.router.navigateByUrl(url);
         },
         error => {
