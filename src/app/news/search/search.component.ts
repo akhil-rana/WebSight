@@ -1,4 +1,9 @@
-import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  ViewEncapsulation
+} from "@angular/core";
 import * as $ from "jquery";
 import { HttpClient } from "@angular/common/http";
 import { ActivatedRoute, Router } from "@angular/router";
@@ -7,7 +12,9 @@ import { AppService } from "../../app.service";
 @Component({
   selector: "app-search",
   templateUrl: "./search.component.html",
-  styleUrls: ["./search.component.css"]
+  styleUrls: ["./search.component.css"],
+  encapsulation: ViewEncapsulation.None
+
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchComponent implements OnInit {
