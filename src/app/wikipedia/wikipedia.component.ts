@@ -10,6 +10,8 @@ export class WikipediaComponent implements OnInit {
   constructor(private http: HttpClient) {}
   query;
   // contents = [""];
+  flag = 1;
+  flag2 = 0;
   ngOnInit(): void {
     this.searchResult = { content: [] };
   }
@@ -22,12 +24,15 @@ export class WikipediaComponent implements OnInit {
     let wikiquery = {
       input: this.query
     };
+    this.flag = 0;
+
     this.http
       .post("https://websight-backend.herokuapp.com/wikipedia", wikiquery)
       .subscribe(
         response => {
           this.searchResult = response;
-
+          this.flag = 1;
+          this.flag2 = 1;
           console.log(this.searchResult);
           // this.resultPass.emit();
           // this.resultPass1.emit();

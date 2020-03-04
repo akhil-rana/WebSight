@@ -1,0 +1,11 @@
+#wikiresult {
+  background-color: grey;
+}
+#wiki {
+  /* text-align: center; */
+  align-content: center;
+}
+mat-card {
+  width: 60em;
+  margin: 0 auto;
+}

@@ -32,5 +32,14 @@
     <mat-icon>search</mat-icon>
   </button>
 </div>
+
+<div *ngIf="flag == 0" id="load">
+  <br /><br />
+  <mat-spinner style="margin:  0 auto;"></mat-spinner>
+</div>
 <br /><br />
-<p *ngFor="let item of searchResult.content">{{ item }} <br /><br /></p>
+<div id="wiki">
+  <mat-card *ngIf="flag2 == 1" id="wikiresult">
+    <p *ngFor="let item of searchResult.content">{{ item }} <br /><br /></p>
+  </mat-card>
+</div>
