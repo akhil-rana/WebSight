@@ -32,6 +32,7 @@ import { WikipediaComponent } from "./wikipedia/wikipedia.component";
 import { SearchComponent } from "./news/search/search.component";
 import { NewsNavbarComponent } from "./news/news-navbar/news-navbar.component";
 import { ScrollingModule } from "@angular/cdk/scrolling";
+import { YoutubeComponent } from './youtube/youtube.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ScrollingModule } from "@angular/cdk/scrolling";
     InshortsHeadlinesComponent,
     WikipediaComponent,
     SearchComponent,
-    NewsNavbarComponent
+    NewsNavbarComponent,
+    YoutubeComponent
   ],
   imports: [
     BrowserModule,
