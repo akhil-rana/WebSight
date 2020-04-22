@@ -10,6 +10,9 @@
   *ngIf="flag == 1"
   style="display: flex; flex-wrap: wrap; align-content: center;"
 >
+  <div>
+    <button mat-mini-fab (click)="onPageOpen()">Click for Headlines</button>
+  </div>
   <div
     *ngFor="let headL of headLines.texts; let i = index"
     style="float: left; margin: 0 auto;"
