@@ -52,9 +52,9 @@ export class NewsComponent implements OnInit {
     synth1.speak(utterance1);
 
     setTimeout(() => {
-      var s = setInterval(function () {
+      var s1 = setInterval(function () {
         if (!synth1.speaking) {
-          clearInterval(s);
+          clearInterval(s1);
           NewsComponent.voiceInput1();
         }
       }, 1000);
@@ -73,7 +73,7 @@ export class NewsComponent implements OnInit {
         //let url = "/google-speech";
         // window.open(url, "_self");
         WeatherComponent.onPageOpen1();
-      } else if (vocalOption.includes("headlines")) {
+      } else if (vocalOption.includes("headline")) {
         // let url = "/news";
         // window.open(url, "_self");
         InshortsHeadlinesComponent.onPageOpen1();
