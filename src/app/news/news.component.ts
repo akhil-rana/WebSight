@@ -11,7 +11,9 @@ import { InshortsHeadlinesComponent } from "./inshorts-headlines/inshorts-headli
 export class NewsComponent implements OnInit {
   elementRef: any;
   stopper;
-  constructor() {}
+  constructor() // private wc: WeatherComponent,
+  // private ic: InshortsHeadlinesComponent
+  {}
   statusFunc = 0;
   speakStat = 0;
   static speakStatWeather = 0;

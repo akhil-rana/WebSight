@@ -10,7 +10,11 @@ import { NewsComponent } from "../news.component";
   styleUrls: ["./inshorts-headlines.component.css"],
 })
 export class InshortsHeadlinesComponent implements OnInit {
-  constructor(private http: HttpClient, private as: AppService) {}
+  constructor(
+    private http: HttpClient,
+    private as: AppService
+  ) //private nc: NewsComponent
+  {}
   // flag = 0;
   // weatherEnd = this.wc.weatherEndRec;
   marker = 0;
