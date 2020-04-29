@@ -27,11 +27,11 @@
   <nav
     (click)="searchClick()"
     class="navbarSearch"
-    style="width: 20%; position: absolute; right: 0; box-shadow: none; "
+    style="width: 20%; position: absolute; right: 0; box-shadow: none;"
   >
     <div class="nav-wrapper">
       <form>
-        <div class="input-field   indigo">
+        <div class="input-field indigo">
           <input
             (keyup.enter)="passNewsQuery()"
             class="lead"
@@ -68,13 +68,20 @@
       <mat-card (click)="newsOpen(i)" style="min-height: 11em;">
         <div style="float: right;">
           <img
-            style="border-radius: 0.7em; width: 9em; height: 9em; margin-left: 1em;"
+            style="
+              border-radius: 0.7em;
+              width: 9em;
+              height: 9em;
+              margin-left: 1em;
+            "
             src="{{ contentImgUrlsUnique[i] }}"
             alt=" "
             srcset=""
           />
         </div>
         <div class="lead flow-text">
+          {{ i + 1 }}
+          <br />
           {{ contentTitlesUnique[i] }}
         </div>
       </mat-card>

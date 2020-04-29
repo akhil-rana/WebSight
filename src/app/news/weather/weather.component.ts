@@ -17,10 +17,8 @@ import { Subscription } from "rxjs/internal/Subscription";
 export class WeatherComponent implements OnInit {
   constructor(
     private as: AppService,
-    private http: HttpClient
-  ) // private ctrl: CompControlComponent,
-  //private nc: NewsComponent
-  {}
+    private http: HttpClient // private ctrl: CompControlComponent, //private nc: NewsComponent
+  ) {}
   city;
 
   wCond;
@@ -104,9 +102,12 @@ export class WeatherComponent implements OnInit {
     this.flag2 = 1;
     //this.nc.statusFunc = 1;
     NewsComponent.speakStatWeather = 1;
-    setTimeout(() => {
-      NewsComponent.afterFirstSignal();
-    }, 5000);
+    let s = setInterval(() => {
+      if (!synth.speaking) {
+        clearInterval(s);
+        NewsComponent.afterFirstSignal1();
+      }
+    }, 1000);
   }
 
   static onPageOpen1() {
@@ -124,7 +125,13 @@ export class WeatherComponent implements OnInit {
     synth.speak(utterance1);
     // setTimeout(() => {});
     NewsComponent.speakStatWeather1 = 1;
-    NewsComponent.afterFirstSignal1();
+    let s = setInterval(() => {
+      if (!synth.speaking) {
+        clearInterval(s);
+        NewsComponent.afterFirstSignal1();
+      }
+    }, 1000);
+    // NewsComponent.afterFirstSignal1();
   }
 
   cityWeaRec() {

@@ -12,9 +12,8 @@ import { NewsComponent } from "../news.component";
 export class InshortsHeadlinesComponent implements OnInit {
   constructor(
     private http: HttpClient,
-    private as: AppService
-  ) //private nc: NewsComponent
-  {}
+    private as: AppService //private nc: NewsComponent
+  ) {}
   // flag = 0;
   // weatherEnd = this.wc.weatherEndRec;
   marker = 0;
@@ -237,7 +236,7 @@ export class InshortsHeadlinesComponent implements OnInit {
   static ChoiceMaker() {
     let synth5 = window.speechSynthesis;
     let utterance5 = new SpeechSynthesisUtterance(
-      "Please say NEXT to listen the next set of headlines, say READ to listen the headline in details, say QUIT to leave"
+      "Please say NEXT to listen the next set of headlines, say REED to listen the headline in details, say QUIT to leave"
     );
     synth5.speak(utterance5);
     var s = setInterval(function () {

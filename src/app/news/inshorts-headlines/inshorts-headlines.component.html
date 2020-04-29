@@ -10,24 +10,29 @@
   *ngIf="flag == 1"
   style="display: flex; flex-wrap: wrap; align-content: center;"
 >
-  <div>
-    <button mat-mini-fab (click)="onPageOpen()">Click for Headlines</button>
-  </div>
   <div
     *ngFor="let headL of headLines.texts; let i = index"
     style="float: left; margin: 0 auto;"
   >
-    <div *ngIf="i < 24" class="col s12 m7" style="float:left;">
-      <div class="card " style="width: 24em;">
+    <div *ngIf="i < 24" class="col s12 m7" style="float: left;">
+      <div class="card" style="width: 24em;">
         <div class="card-image">
           <div
             class="imgnews"
             [style.background-image]="imageUrl(headLines.imageCard[i])"
-            style="height: 18em; overflow:hidden; background-position: 50%; "
+            style="height: 18em; overflow: hidden; background-position: 50%;"
           >
             <div
               class="BlackTint"
-              style="z-index: 1; height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background: rgba(0, 0, 0, 0.7);  "
+              style="
+                z-index: 1;
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                background: rgba(0, 0, 0, 0.7);
+              "
             >
               <div
                 class="card-title display-3"
