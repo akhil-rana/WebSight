@@ -6,35 +6,40 @@ import { TranslateComponent } from "./translate/translate.component";
 import { NewsComponent } from "./news/news.component";
 import { WikipediaComponent } from "./wikipedia/wikipedia.component";
 import { SearchComponent } from "./news/search/search.component";
+import { YoutubeComponent } from "./youtube/youtube.component";
 const routes: Routes = [
   {
     path: "",
-    component: MainPComponent
+    component: MainPComponent,
   },
   {
     path: "google-speech",
-    component: SpeechComponent
+    component: SpeechComponent,
   },
   {
     path: "translate",
-    component: TranslateComponent
+    component: TranslateComponent,
   },
   {
     path: "news",
-    component: NewsComponent
+    component: NewsComponent,
   },
   {
     path: "wikipedia",
-    component: WikipediaComponent
+    component: WikipediaComponent,
   },
   {
     path: "news/search/:id",
-    component: SearchComponent
-  }
+    component: SearchComponent,
+  },
+  {
+    path: "youtube",
+    component: YoutubeComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
