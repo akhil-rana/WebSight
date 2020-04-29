@@ -127,3 +127,7 @@ hr {
   flex-wrap: wrap;
   align-content: center;
 }
+.copyright {
+  background-color: #042236;
+  color: white;
+}
