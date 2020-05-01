@@ -1,20 +1,48 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, EventEmitter } from "@angular/core";
 import { AppService } from "../../app.service";
 import { HttpClient } from "@angular/common/http";
+import { NewsComponent } from "../news.component";
 import * as $ from "jquery";
+import { Subscription } from "rxjs/internal/Subscription";
+//import { CompControlComponent } from "../comp-control/comp-control.component";
+//import { setInterval } from "timers";
+//import { THIS_EXPR } from "@angular/compiler/src/output/output_ast";
+// import { EventEmitter } from "protractor";
 
 @Component({
   selector: "app-weather",
   templateUrl: "./weather.component.html",
-  styleUrls: ["./weather.component.css"]
+  styleUrls: ["./weather.component.css"],
 })
 export class WeatherComponent implements OnInit {
-  constructor(private as: AppService, private http: HttpClient) {}
+  constructor(
+    private as: AppService,
+    private http: HttpClient // private ctrl: CompControlComponent, //private nc: NewsComponent
+  ) {}
+  city;
+
+  wCond;
+  promises;
+  flag = 0;
+  flag2 = 0;
+  weather;
+  temperature;
+  latitude;
+  longitude;
+  feels_like;
+
+  static weather1;
+  static temperature1;
+  static latitude1;
+  static longitude1;
+  static feels_like1;
+  static city1;
 
   ngOnInit() {
     if (this.as.resultRec4 == undefined) {
       this.as.resultRec4 = this.as.resultPass4.subscribe((name: string) => {
         this.cityWeaRec();
+        this.onPageOpen();
       });
     }
     this.cityWeaPass();
@@ -23,21 +51,27 @@ export class WeatherComponent implements OnInit {
     var now = new Date();
     var sec = now.getSeconds();
     var ssec = (60 - sec) * 1000;
-    setTimeout(function() {
+    setTimeout(function (res) {
       WeatherComponent.weatherWidgetTime();
-      setInterval(function() {
+      setInterval(function () {
         WeatherComponent.weatherWidgetTime();
       }, 60000);
+      // console.log(this.as.woutput);
+      // console.log(this.as.flagger);
+      return 1;
     }, ssec);
+
+    // setTimeout(() => {
+    //   let s = setInterval(function() {
+    //     console.log(this.flag);
+    //     console.log("present here");
+    //     if (this.flag == 1) {
+    //       this.onPageOpen();
+    //       clearInterval(s);
+    //     }
+    //   });
+    // }, 1000);
   }
-  city;
-  wCond;
-  flag = 0;
-  weather;
-  temperature;
-  latitude;
-  longitude;
-  feels_like;
   cityWeaPass() {
     // location.reload(true);
     var as = this.as;
@@ -48,6 +82,58 @@ export class WeatherComponent implements OnInit {
       as.weather(crd.longitude, crd.latitude);
     }
   }
+  onPageOpen() {
+    let synth = window.speechSynthesis;
+    let utterance1 = new SpeechSynthesisUtterance(
+      "Hello user. today's weather condition in " +
+        this.city +
+        "is .  . " +
+        this.wCond +
+        ". Temperature ," +
+        this.temperature +
+        "elsius. " +
+        this.feels_like
+    );
+    synth.speak(utterance1);
+    // setTimeout(() => {});
+
+    this.as.weatherEndPass.emit();
+    // console.log(1);
+    this.flag2 = 1;
+    //this.nc.statusFunc = 1;
+    NewsComponent.speakStatWeather = 1;
+    let s = setInterval(() => {
+      if (!synth.speaking) {
+        clearInterval(s);
+        NewsComponent.afterFirstSignal1();
+      }
+    }, 1000);
+  }
+
+  static onPageOpen1() {
+    let synth = window.speechSynthesis;
+    let utterance1 = new SpeechSynthesisUtterance(
+      " today's weather condition in " +
+        WeatherComponent.city1 +
+        "is .  . " +
+        WeatherComponent.weather1 +
+        ". Temperature ," +
+        WeatherComponent.temperature1 +
+        "elsius. " +
+        WeatherComponent.feels_like1
+    );
+    synth.speak(utterance1);
+    // setTimeout(() => {});
+    NewsComponent.speakStatWeather1 = 1;
+    let s = setInterval(() => {
+      if (!synth.speaking) {
+        clearInterval(s);
+        NewsComponent.afterFirstSignal1();
+      }
+    }, 1000);
+    // NewsComponent.afterFirstSignal1();
+  }
+
   cityWeaRec() {
     this.weather = this.as.woutput;
     // console.log(this.weather);
@@ -55,6 +141,7 @@ export class WeatherComponent implements OnInit {
       this.flag = 1;
       this.city = this.weather.name;
       this.wCond = this.weather.weather[0].main;
+      // console.log(this.wCond);
       var iconcode = this.weather.weather[0].icon;
       this.feels_like =
         "Feels like:  " + Math.round(this.weather.main.feels_like) + "° C";
@@ -67,6 +154,14 @@ export class WeatherComponent implements OnInit {
         $("#centerLine").css("border-right", "1px solid black");
         $("#centerLine").css("padding-right", "1em");
       }
+
+      WeatherComponent.feels_like1 = this.feels_like;
+      WeatherComponent.weather1 = this.wCond;
+      WeatherComponent.temperature1 = this.temperature;
+      WeatherComponent.city1 = this.city;
+
+      //console.log(this.flag);
+      // this.flag2 = 1;
     } catch (error) {
       this.flag = 0;
       console.log(error);

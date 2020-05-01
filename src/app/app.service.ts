@@ -24,6 +24,8 @@ export class AppService {
 
   resultPass5 = new EventEmitter();
   resultRec5: Subscription;
+  weatherEndPass = new EventEmitter();
+  weatherEndRec: Subscription;
 
   query;
   output;
@@ -74,6 +76,7 @@ export class AppService {
       );
   }
 
+  flagger;
   city;
   woutput;
   weather(lon, lat) {
@@ -87,6 +90,7 @@ export class AppService {
         response => {
           console.log(response);
           this.woutput = response;
+          this.flagger = 1;
           this.resultPass4.emit();
         },
         error => {

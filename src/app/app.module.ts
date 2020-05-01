@@ -32,7 +32,9 @@ import { WikipediaComponent } from "./wikipedia/wikipedia.component";
 import { SearchComponent } from "./news/search/search.component";
 import { NewsNavbarComponent } from "./news/news-navbar/news-navbar.component";
 import { ScrollingModule } from "@angular/cdk/scrolling";
+//import { CompControlComponent } from './news/comp-control/comp-control.component';
 import { YoutubeComponent } from './youtube/youtube.component';
+
 
 @NgModule({
   declarations: [
@@ -50,6 +52,7 @@ import { YoutubeComponent } from './youtube/youtube.component';
     WikipediaComponent,
     SearchComponent,
     NewsNavbarComponent,
+    // CompControlComponent
     YoutubeComponent
   ],
   imports: [
@@ -70,9 +73,9 @@ import { YoutubeComponent } from './youtube/youtube.component';
     MatSelectModule,
     YouTubePlayerModule,
     MatProgressBarModule,
-    ScrollingModule
+    ScrollingModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
