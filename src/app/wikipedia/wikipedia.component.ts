@@ -29,7 +29,7 @@ export class WikipediaComponent implements OnInit {
   }
   // static FinalSpeaker;
   static readableString;
-  static counterPara = 2;
+  static counterPara = 1;
   static paraLength;
 
   static ReadContent(val) {
@@ -38,8 +38,12 @@ export class WikipediaComponent implements OnInit {
     let utterance2;
     console.log(val);
 
+    let textEdit = WikipediaComponent.readableString[val];
+    let speakableText = "";
+    let starter = 0;
+
     let s4 = setInterval(() => {
-      if (TypeError) {
+      if (textEdit == undefined) {
         clearInterval(s4);
         let synth8 = window.speechSynthesis;
         let utterance8 = new SpeechSynthesisUtterance(
@@ -53,11 +57,8 @@ export class WikipediaComponent implements OnInit {
           }
         }, 1000);
       }
-    }, 5000);
+    }, 2000);
 
-    let textEdit = WikipediaComponent.readableString[val];
-    let speakableText = "";
-    let starter = 0;
     //  console.log("index of" + indexs);
     // console.log(textEdit);
     if (textEdit.indexOf("[") >= 1) {
@@ -111,7 +112,7 @@ export class WikipediaComponent implements OnInit {
         this.query != undefined
       ) {
         clearInterval(s);
-        WikipediaComponent.ReadContent(2);
+        WikipediaComponent.ReadContent(1);
       }
     }, 1000);
   }
@@ -161,7 +162,7 @@ export class WikipediaComponent implements OnInit {
         //let url = "/google-speech";
         // window.open(url, "_self");
       } else if (vocalOption.includes("back")) {
-        if (WikipediaComponent.counterPara - 1 >= 2) {
+        if (WikipediaComponent.counterPara - 1 >= 1) {
           WikipediaComponent.counterPara = WikipediaComponent.counterPara - 1;
           WikipediaComponent.ReadContent(WikipediaComponent.counterPara);
         } else {
