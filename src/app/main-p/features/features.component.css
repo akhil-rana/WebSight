@@ -1,7 +1,10 @@
 /* .example-card {
     max-width: 400px;
   } */
-
+*{
+  margin: 0;
+  padding: 0;
+}
 .gmail {
   height: 10em;
   width: auto;
