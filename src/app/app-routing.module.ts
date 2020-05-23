@@ -7,6 +7,8 @@ import { NewsComponent } from "./news/news.component";
 import { WikipediaComponent } from "./wikipedia/wikipedia.component";
 import { SearchComponent } from "./news/search/search.component";
 import { YoutubeComponent } from "./youtube/youtube.component";
+import { YtPlayerComponent } from "./youtube/yt-player/yt-player.component";
+
 const routes: Routes = [
   {
     path: "",
@@ -35,6 +37,10 @@ const routes: Routes = [
   {
     path: "youtube",
     component: YoutubeComponent,
+  },
+  {
+    path: "youtube/:id",
+    component: YtPlayerComponent,
   },
 ];
 

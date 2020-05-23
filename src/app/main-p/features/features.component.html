@@ -78,26 +78,30 @@
   </mat-card-actions> -->
   </mat-card>
 
-  <mat-card [routerLink]="['/translate']">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-imaget"></div>
-      <div class="gsearchtitle">
-        <mat-card-title class="lead"><b> GOOGLE TRANSLATE </b> </mat-card-title>
-        <mat-card-subtitle>Online translator</mat-card-subtitle>
-      </div>
-    </mat-card-header>
-    <img
-      class="gtranslate"
-      mat-card-image
-      src="/assets/images/google translate 3.png"
-      alt="image is of google translate"
-    />
-    <mat-card-content>
-      <p>
-        Google Translate is a free multilingual machine translation service.
-      </p>
-    </mat-card-content>
-  </mat-card>
+  <a href="/translate" style="margin: 0px auto;">
+    <mat-card>
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-imaget"></div>
+        <div class="gsearchtitle">
+          <mat-card-title class="lead"
+            ><b> GOOGLE TRANSLATE </b>
+          </mat-card-title>
+          <mat-card-subtitle>Online translator</mat-card-subtitle>
+        </div>
+      </mat-card-header>
+      <img
+        class="gtranslate"
+        mat-card-image
+        src="/assets/images/google translate 3.png"
+        alt="image is of google translate"
+      />
+      <mat-card-content>
+        <p>
+          Google Translate is a free multilingual machine translation service.
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </a>
   <mat-card [routerLink]="['/wikipedia']" routerLinkActive="router-link-active">
     <mat-card-header>
       <div mat-card-avatar class="example-header-imagew"></div>

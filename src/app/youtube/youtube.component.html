@@ -11,10 +11,11 @@
     <span class="lead" style="font-size: 1.2em;">YouTube</span>
   </mat-toolbar>
   <hr />
+  <br />
   <span style="font-size: small; color: rgb(82, 76, 76); padding-bottom: 5px;">
     Search here: &nbsp;&nbsp;
   </span>
-  <mat-form-field style="width: 20em !important ;">
+  <mat-form-field (keyup.enter)="send_query()" style="width: 20em !important ;">
     <input matInput [(ngModel)]="query" id="searchKey" />
   </mat-form-field>
   <br />
@@ -26,14 +27,52 @@
     <mat-icon>search</mat-icon>
   </button>
 </div>
-<br /><br /><br /><br />
+<br /><br /><br />
+<div
+  class="lead"
+  style="
+    align-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2em;
+    padding: 1em;
+  "
+>
+  <mat-spinner
+    *ngIf="flag1 != 1"
+    style="margin: 0 auto;"
+    color="warn"
+  ></mat-spinner>
 
-<mat-card class="example-card">
-  <!-- <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-  </mat-card-header> -->
+  <div
+    *ngIf="flag2 == 1"
+    style="
+      margin: 0 auto;
+      max-width: 50em;
+      min-width: 12em;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    "
+  >
+    <div *ngFor="let item of result[0]; index as i" class="list-group">
+      <a
+        [href]="result[1][i]"
+        class="list-group-item list-group-item-action"
+        style="text-overflow: ellipsis;"
+      >
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1" style="text-align: left;">{{ result[0][i] }}</h5>
+          <small>{{ result[2][i] }}</small>
+        </div>
+        <p class="mb-1" style="text-align: left; text-overflow: ellipsis;">
+          {{ result[3][i] }}
+        </p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- <mat-card class="example-card">
   <img
     class="image1"
     mat-card-image
@@ -49,11 +88,7 @@
       six original.
     </p>
   </mat-card-content>
-  <!-- <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
-  </mat-card-actions> -->
-</mat-card>
+</mat-card> -->
 
 <!-- 
 <mat-card class="example-card">

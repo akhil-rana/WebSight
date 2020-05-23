@@ -34,6 +34,7 @@ import { NewsNavbarComponent } from "./news/news-navbar/news-navbar.component";
 import { ScrollingModule } from "@angular/cdk/scrolling";
 //import { CompControlComponent } from './news/comp-control/comp-control.component';
 import { YoutubeComponent } from './youtube/youtube.component';
+import { YtPlayerComponent } from './youtube/yt-player/yt-player.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { YoutubeComponent } from './youtube/youtube.component';
     SearchComponent,
     NewsNavbarComponent,
     // CompControlComponent
-    YoutubeComponent
+    YoutubeComponent,
+    YtPlayerComponent
   ],
   imports: [
     BrowserModule,
