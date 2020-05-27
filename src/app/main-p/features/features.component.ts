@@ -79,6 +79,9 @@ export class FeaturesComponent implements OnInit {
       } else if (vocalOption.includes("4")) {
         let url = "/translate";
         window.open(url, "_self");
+      } else if (vocalOption.includes("5")) {
+        let url = "/wikipedia";
+        window.open(url, "_self");
       } else if (vocalOption.includes("repeat")) {
         let temper = 1;
         FeaturesComponent.onPageOpen1(temper);
