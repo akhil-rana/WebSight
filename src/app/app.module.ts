@@ -33,6 +33,9 @@ import { SearchComponent } from "./news/search/search.component";
 import { NewsNavbarComponent } from "./news/news-navbar/news-navbar.component";
 import { ScrollingModule } from "@angular/cdk/scrolling";
 //import { CompControlComponent } from './news/comp-control/comp-control.component';
+import { YoutubeComponent } from './youtube/youtube.component';
+import { YtPlayerComponent } from './youtube/yt-player/yt-player.component';
+
 
 @NgModule({
   declarations: [
@@ -51,6 +54,8 @@ import { ScrollingModule } from "@angular/cdk/scrolling";
     SearchComponent,
     NewsNavbarComponent,
     // CompControlComponent
+    YoutubeComponent,
+    YtPlayerComponent
   ],
   imports: [
     BrowserModule,

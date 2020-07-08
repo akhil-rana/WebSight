@@ -1,7 +1,10 @@
 /* .example-card {
     max-width: 400px;
   } */
-
+*{
+  margin: 0;
+  padding: 0;
+}
 .gmail {
   height: 10em;
   width: auto;
@@ -126,4 +129,8 @@ hr {
   display: flex;
   flex-wrap: wrap;
   align-content: center;
+}
+.copyright {
+  background-color: #042236;
+  color: white;
 }

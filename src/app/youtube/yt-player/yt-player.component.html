@@ -1,0 +1,29 @@
+<mat-toolbar style="display: flex;">
+  <button (click)="goBack()" mat-icon-button>
+    <mat-icon>arrow_back</mat-icon></button
+  >&nbsp; &nbsp;
+  <img
+    src="/assets/images/Youtube.webp"
+    alt=""
+    style="width: 2em; height: auto;"
+  />
+  <span class="lead" style="font-size: 1.2em;">&nbsp; YouTube</span>
+</mat-toolbar>
+<br /><br />
+<div
+  class="lead"
+  style="
+    align-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2em;
+    padding: 1em;
+  "
+>
+  <div
+    style="margin: 0 auto; overflow: auto; min-width: 12em; max-width: 70em;"
+  >
+    <youtube-player id="player" [videoId]="videoID" suggestedQuality="highres">
+    </youtube-player>
+  </div>
+</div>
