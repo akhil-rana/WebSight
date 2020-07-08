@@ -9,7 +9,8 @@ import { HttpClient } from "@angular/common/http";
 import { ActivatedRoute, Router } from "@angular/router";
 import { AppService } from "../../app.service";
 import { NewsComponent } from "../news.component";
-
+declare var webkitSpeechGrammarList: any;
+declare var webkitSpeechRecognition: any;
 @Component({
   selector: "app-search",
   templateUrl: "./search.component.html",
@@ -108,7 +109,18 @@ export class SearchComponent implements OnInit {
   }
 
   static voiceInput2() {
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
     var recognition = new SpeechRecognition();
+    var grammar = "#JSGF V1.0;";
+
+    var speechRecognitionList = new SpeechGrammarList();
+    speechRecognitionList.addFromString(grammar, 1);
+    recognition.grammars = speechRecognitionList;
+    recognition.continuous = true;
+    recognition.lang = "en-IN";
+    recognition.interimResults = false;
+
     recognition.lang = "en-IN";
 
     recognition.onresult = function (event) {
@@ -161,7 +173,19 @@ export class SearchComponent implements OnInit {
   }
 
   static voiceInput3() {
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
     var recognition = new SpeechRecognition();
+    var grammar = "#JSGF V1.0;";
+
+    var speechRecognitionList = new SpeechGrammarList();
+    speechRecognitionList.addFromString(grammar, 1);
+    recognition.grammars = speechRecognitionList;
+    recognition.continuous = true;
+    recognition.lang = "en-IN";
+    recognition.interimResults = false;
+
+    recognition.lang = "en-IN";
     recognition.lang = "en-IN";
 
     recognition.onresult = function (event) {

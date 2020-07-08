@@ -4,6 +4,8 @@ import { HttpClient } from "@angular/common/http";
 import { Subscription } from "rxjs/internal/Subscription";
 import { NewsComponent } from "../news.component";
 // import { WeatherComponent } from "../weather/weather.component";
+declare var webkitSpeechGrammarList: any;
+declare var webkitSpeechRecognition: any;
 @Component({
   selector: "app-inshorts-headlines",
   templateUrl: "./inshorts-headlines.component.html",
@@ -114,6 +116,21 @@ export class InshortsHeadlinesComponent implements OnInit {
   }
 
   static voiceInput1() {
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+    var recognition = new SpeechRecognition();
+    var grammar = "#JSGF V1.0;";
+
+    var speechRecognitionList = new SpeechGrammarList();
+    speechRecognitionList.addFromString(grammar, 1);
+    recognition.grammars = speechRecognitionList;
+    recognition.continuous = true;
+    recognition.lang = "en-IN";
+    recognition.interimResults = false;
+
+    recognition.lang = "en-IN";
+    var recognition = new SpeechRecognition();
+    recognition.lang = "en-IN";
     var recognition = new SpeechRecognition();
     recognition.lang = "en-IN";
     let synth2 = window.speechSynthesis;
@@ -198,6 +215,19 @@ export class InshortsHeadlinesComponent implements OnInit {
   }
 
   static voiceInputChoice() {
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+    var recognition = new SpeechRecognition();
+    var grammar = "#JSGF V1.0;";
+
+    var speechRecognitionList = new SpeechGrammarList();
+    speechRecognitionList.addFromString(grammar, 1);
+    recognition.grammars = speechRecognitionList;
+    recognition.continuous = true;
+    recognition.lang = "en-IN";
+    recognition.interimResults = false;
+
+    recognition.lang = "en-IN";
     var recognition = new SpeechRecognition();
     recognition.lang = "en-IN";
     // synth5.speak(utterance5);

@@ -3,7 +3,8 @@ import { WeatherComponent } from "src/app/news/weather/weather.component";
 import { InshortsHeadlinesComponent } from "./inshorts-headlines/inshorts-headlines.component";
 import { Router } from "@angular/router";
 import { SearchComponent } from "./search/search.component";
-
+declare var webkitSpeechGrammarList: any;
+declare var webkitSpeechRecognition: any;
 //import { setInterval } from "timers";
 @Component({
   selector: "app-news",
@@ -76,7 +77,18 @@ export class NewsComponent implements OnInit {
 
   static queryS;
   static voiceInput1(router) {
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+
+    var grammar = "#JSGF V1.0;";
     var recognition = new SpeechRecognition();
+    var speechRecognitionList = new SpeechGrammarList();
+    speechRecognitionList.addFromString(grammar, 1);
+    recognition.grammars = speechRecognitionList;
+    recognition.continuous = true;
+    recognition.lang = "en-IN";
+    recognition.interimResults = false;
+    //  var recognition = new SpeechRecognition();
     recognition.lang = "en-IN";
 
     recognition.onresult = function (event) {
@@ -123,7 +135,18 @@ export class NewsComponent implements OnInit {
   }
 
   static voiceInput2() {
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+
+    var grammar = "#JSGF V1.0;";
     var recognition = new SpeechRecognition();
+    var speechRecognitionList = new SpeechGrammarList();
+    speechRecognitionList.addFromString(grammar, 1);
+    recognition.grammars = speechRecognitionList;
+    recognition.continuous = true;
+    recognition.lang = "en-IN";
+    recognition.interimResults = false;
+    // var recognition = new SpeechRecognition();
     recognition.lang = "en-IN";
 
     recognition.onresult = function (event) {
