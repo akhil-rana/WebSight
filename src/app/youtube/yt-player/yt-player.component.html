@@ -23,7 +23,12 @@
   <div
     style="margin: 0 auto; overflow: auto; min-width: 12em; max-width: 70em;"
   >
-    <youtube-player id="player" [videoId]="videoID" suggestedQuality="highres">
+    <youtube-player
+      id="player"
+      [videoId]="videoID"
+      suggestedQuality="highres"
+      onload="onPageOpen()"
+    >
     </youtube-player>
   </div>
 </div>
