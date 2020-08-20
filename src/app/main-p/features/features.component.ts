@@ -3,7 +3,8 @@ import { AppService } from "../../app.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { NewsComponent } from "src/app/news/news.component";
 import { WeatherComponent } from "src/app/news/weather/weather.component";
-
+declare var webkitSpeechGrammarList: any;
+declare var webkitSpeechRecognition: any;
 @Component({
   selector: "app-features",
   templateUrl: "./features.component.html",
@@ -13,10 +14,11 @@ export class FeaturesComponent implements OnInit {
   constructor(private router: Router, private ngzone: NgZone) {
     FeaturesComponent.router1 = this.router;
     FeaturesComponent.ngzone1 = this.ngzone;
+    this.onPageOpen();
   }
 
   ngOnInit() {
-    this.onPageOpen();
+    // this.onPageOpen();
   }
   vocalOption;
   onPageOpen() {
@@ -25,14 +27,14 @@ export class FeaturesComponent implements OnInit {
       "Hello user,  Welcome to web sight , please say the option you want, 1, Google Search, 2, News, 3, Google mail, 4, Google Translate, 5, wikipedia, 6, youtube and music, say ,'RESULT NUMBER 1' to open result 1 and so, or say 'REPEAT'"
     );
     synth.speak(utterance1);
-    // setTimeout(() => {
+    //setTimeout(() => {
     var s = setInterval(function () {
       if (!synth.speaking) {
         clearInterval(s);
         FeaturesComponent.voiceInput1();
       }
-    }, 1000);
-    //  }, 1000);
+    }, 2000);
+    //}, 2000);
   }
   static onPageOpen1(temper) {
     let synth = window.speechSynthesis;
@@ -63,8 +65,20 @@ export class FeaturesComponent implements OnInit {
   static router1;
   static ngzone1;
   static voiceInput1() {
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
     var recognition = new SpeechRecognition();
+    var grammar = "#JSGF V1.0;";
+
+    var speechRecognitionList = new SpeechGrammarList();
+    speechRecognitionList.addFromString(grammar, 1);
+    recognition.grammars = speechRecognitionList;
+    recognition.continuous = true;
     recognition.lang = "en-IN";
+    recognition.interimResults = false;
+
+    recognition.lang = "en-IN";
+    //  var recognition = new SpeechRecognition();
 
     recognition.onresult = function (event) {
       var last = event.results.length - 1;

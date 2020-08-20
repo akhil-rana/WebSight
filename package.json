@@ -61,5 +61,17 @@
   "engines": {
     "node": "^13.0.1",
     "npm": "^6.12.0"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akhil-rana/WebSight.git"
+  },
+  "author": "Akhil Rana, Parth Rastogi, Pratyashi Dutta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/akhil-rana/WebSight/issues"
+  },
+  "homepage": "https://github.com/akhil-rana/WebSight#readme"
 }

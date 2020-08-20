@@ -18,7 +18,15 @@ export class WeatherComponent implements OnInit {
   constructor(
     private as: AppService,
     private http: HttpClient // private ctrl: CompControlComponent, //private nc: NewsComponent
-  ) {}
+  ) {
+    if (this.as.resultRec4 == undefined) {
+      this.as.resultRec4 = this.as.resultPass4.subscribe((name: string) => {
+        this.cityWeaRec();
+        this.onPageOpen();
+      });
+    }
+    // this.onPageOpen();
+  }
   city;
 
   wCond;
@@ -41,8 +49,8 @@ export class WeatherComponent implements OnInit {
   ngOnInit() {
     if (this.as.resultRec4 == undefined) {
       this.as.resultRec4 = this.as.resultPass4.subscribe((name: string) => {
-        this.cityWeaRec();
-        this.onPageOpen();
+        //this.cityWeaRec();
+        // this.onPageOpen();
       });
     }
     this.cityWeaPass();

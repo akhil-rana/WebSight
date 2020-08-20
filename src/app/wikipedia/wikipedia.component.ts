@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 //import { setInterval } from "timers";
-
+declare var webkitSpeechGrammarList: any;
+declare var webkitSpeechRecognition: any;
 @Component({
   selector: "app-wikipedia",
   templateUrl: "./wikipedia.component.html",
@@ -132,7 +133,18 @@ export class WikipediaComponent implements OnInit {
   }
 
   static voiceInput2() {
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
     var recognition = new SpeechRecognition();
+    var grammar = "#JSGF V1.0;";
+
+    var speechRecognitionList = new SpeechGrammarList();
+    speechRecognitionList.addFromString(grammar, 1);
+    recognition.grammars = speechRecognitionList;
+    recognition.continuous = true;
+    recognition.lang = "en-IN";
+    recognition.interimResults = false;
+
     recognition.lang = "en-IN";
 
     recognition.onresult = function (event) {
@@ -235,7 +247,18 @@ export class WikipediaComponent implements OnInit {
   static queryW;
 
   static voiceInput1() {
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
     var recognition = new SpeechRecognition();
+    var grammar = "#JSGF V1.0;";
+
+    var speechRecognitionList = new SpeechGrammarList();
+    speechRecognitionList.addFromString(grammar, 1);
+    recognition.grammars = speechRecognitionList;
+    recognition.continuous = true;
+    recognition.lang = "en-IN";
+    recognition.interimResults = false;
+
     recognition.lang = "en-IN";
 
     recognition.onresult = function (event) {
@@ -262,7 +285,18 @@ export class WikipediaComponent implements OnInit {
   }
 
   static voiceInput3() {
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
     var recognition = new SpeechRecognition();
+    var grammar = "#JSGF V1.0;";
+
+    var speechRecognitionList = new SpeechGrammarList();
+    speechRecognitionList.addFromString(grammar, 1);
+    recognition.grammars = speechRecognitionList;
+    recognition.continuous = true;
+    recognition.lang = "en-IN";
+    recognition.interimResults = false;
+
     recognition.lang = "en-IN";
 
     recognition.onresult = function (event) {

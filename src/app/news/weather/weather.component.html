@@ -2,16 +2,22 @@
 <br />
 <div
   class="lead"
-  style="text-align: center; display:none; cursor: default; padding: 1em;"
+  style="text-align: center; display: none; cursor: default; padding: 1em;"
   id="WeatherWidget"
 >
   <mat-card
     id="widget"
-    style="min-width: 18em; max-width: 40em; height: 9em; margin: 0 auto; background: rgba(46, 107, 165, 0.527); "
+    style="
+      min-width: 18em;
+      max-width: 40em;
+      height: 9em;
+      margin: 0 auto;
+      background: rgba(46, 107, 165, 0.527);
+    "
   >
     <div style="position: absolute; right: 1em;">
       <p *ngIf="flag == 1">{{ city }} | {{ wCond }}</p>
-      <i id="wicon" style="display: none; font-size: 3em; " class=""></i>
+      <i id="wicon" style="display: none; font-size: 3em;" class=""></i>
       &nbsp;&nbsp;
       <span style="font-size: 1.3em; position: relative; bottom: 0.7em;">
         {{ temperature }}
@@ -21,7 +27,7 @@
     </div>
     <div
       id="centerLine"
-      style="position: absolute; left: 0.6em; top: 0.6em;  padding-right: 0.7em;"
+      style="position: absolute; left: 0.6em; top: 0.6em; padding-right: 0.7em;"
     >
       <span id="date" style="position: relative; top: 0.6em;"></span><br />
       <span style="font-size: 3.2em;">
@@ -31,5 +37,3 @@
     </div>
   </mat-card>
 </div>
-
-
